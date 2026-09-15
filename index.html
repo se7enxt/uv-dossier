@@ -1,0 +1,2424 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="theme-color" content="#07090e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>UNTITLED VENTURE — Executive Studio Dossier & Master Archive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+    
+    :root {
+      --sat: env(safe-area-inset-top, 0px);
+      --sab: env(safe-area-inset-bottom, 0px);
+      --sal: env(safe-area-inset-left, 0px);
+      --sar: env(safe-area-inset-right, 0px);
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #07090e;
+      color: #e2e8f0;
+      -webkit-tap-highlight-color: transparent;
+      padding-bottom: max(5rem, calc(4.5rem + var(--sab)));
+    }
+    
+    .font-mono-code {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #fef3c7 0%, #f59e0b 50%, #d97706 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .glass-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(51, 65, 85, 0.65);
+    }
+    
+    .glass-card:active, .glass-card:hover {
+      border-color: rgba(245, 158, 11, 0.45);
+    }
+
+    /* Mobile scroll optimizations */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .touch-pan-x {
+      -webkit-overflow-scrolling: touch;
+      touch-action: pan-x;
+    }
+
+    .touch-target {
+      min-height: 44px;
+      min-width: 44px;
+    }
+
+    /* Mobile scroll mask */
+    .scroll-mask {
+      mask-image: linear-gradient(to right, black 88%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, black 88%, transparent 100%);
+    }
+  </style>
+</head>
+<body class="min-h-screen text-slate-200 antialiased selection:bg-amber-500/30 selection:text-amber-200">
+
+  <!-- Mobile-First Sticky Header -->
+  <header class="sticky top-0 z-40 bg-slate-950/90 backdrop-blur-md border-b border-slate-800/80 px-4 sm:px-6 py-3 transition-all" style="padding-top: max(0.75rem, var(--sat));">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="#manifesto" class="w-8 h-8 rounded bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center font-bold text-slate-950 text-sm shadow-lg shadow-amber-500/20 active:scale-95 transition-transform">
+          UV
+        </a>
+        <div>
+          <div class="text-xs sm:text-sm font-bold tracking-wider text-white flex items-center gap-1.5 sm:gap-2">
+            UNTITLED VENTURE
+            <span class="text-[9px] sm:text-[10px] uppercase font-mono-code px-1.5 py-0.5 rounded bg-amber-500/10 border border-amber-500/30 text-amber-400 font-semibold">
+              Live v1.0
+            </span>
+          </div>
+          <div class="text-[10px] text-slate-400 truncate max-w-[200px] sm:max-w-none">The AI Studio for the Cinema Era</div>
+        </div>
+      </div>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-5 text-xs font-medium text-slate-300">
+        <a href="#manifesto" class="hover:text-amber-400 transition-colors">Manifesto</a>
+        <a href="#council" class="hover:text-amber-400 transition-colors">Council</a>
+        <a href="#metrics" class="hover:text-amber-400 transition-colors">Scale</a>
+        <a href="#campaigns" class="hover:text-amber-400 transition-colors">Repertoire</a>
+        <a href="#moat" class="hover:text-amber-400 transition-colors">Moat</a>
+        <a href="#logos-vault" class="hover:text-amber-400 transition-colors text-amber-300 flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+          24-Brand Vault
+        </a>
+        <a href="#tech" class="hover:text-amber-400 transition-colors">Tech</a>
+        <a href="#wireframes" class="hover:text-amber-400 transition-colors">Wireframes</a>
+      </nav>
+
+      <!-- Mobile Menu Button & Status -->
+      <div class="flex items-center gap-2">
+        <div class="hidden sm:flex items-center gap-1.5 text-[10px] font-mono-code text-emerald-400 bg-emerald-950/40 border border-emerald-800/40 px-2.5 py-1 rounded-full">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping inline-block"></span>
+          <span>AUDITED</span>
+        </div>
+        
+        <!-- Mobile Menu Toggle Button -->
+        <button onclick="toggleMobileMenu()" class="lg:hidden touch-target flex items-center justify-center p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white active:scale-95 transition-transform" aria-label="Toggle navigation">
+          <svg id="menu-icon-bars" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          <svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Slide-Down Menu Drawer -->
+    <div id="mobile-menu-drawer" class="hidden lg:hidden pt-3 pb-2 border-t border-slate-800/80 mt-2 space-y-1">
+      <a href="#manifesto" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-xs font-medium text-slate-300 hover:bg-slate-900 hover:text-amber-400">Studio Manifesto & Thesis</a>
+      <a href="#council" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-xs font-medium text-slate-300 hover:bg-slate-900 hover:text-amber-400">01. The Founding Council (5 Partners)</a>
+      <a href="#metrics" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-xs font-medium text-slate-300 hover:bg-slate-900 hover:text-amber-400">02. Proven Scale & Metrics Breakdown</a>
+      <a href="#campaigns" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-xs font-medium text-slate-300 hover:bg-slate-900 hover:text-amber-400">03. Mainline Campaigns & Film Scores</a>
+      <a href="#moat" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-xs font-medium text-slate-300 hover:bg-slate-900 hover:text-amber-400">04. The Strategic Moat & Creative Dialectic</a>
+      <a href="#logos-vault" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-xs font-medium text-amber-300 bg-amber-500/10 hover:bg-amber-500/20">05. 24-Brand Trademark Vault (White/Color)</a>
+      <a href="#tech" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-xs font-medium text-slate-300 hover:bg-slate-900 hover:text-amber-400">06. Proprietary Creative Tech & Audio AI</a>
+      <a href="#wireframes" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-xs font-medium text-slate-300 hover:bg-slate-900 hover:text-amber-400">07. Pitch Deck Wireframes (Slides 1-5)</a>
+    </div>
+  </header>
+
+  <!-- Mobile-First Native Bottom Navigation Bar -->
+  <nav class="fixed bottom-0 left-0 right-0 z-40 bg-slate-950/95 backdrop-blur-lg border-t border-slate-800/90 px-3 py-1.5 flex items-center justify-around text-[10px] font-mono-code lg:hidden" style="padding-bottom: max(0.5rem, var(--sab));">
+    <a href="#manifesto" class="flex flex-col items-center gap-0.5 py-1 px-2 text-slate-400 hover:text-amber-400 active:scale-95 transition-transform">
+      <span class="text-sm">🏛️</span>
+      <span>Thesis</span>
+    </a>
+    <a href="#council" class="flex flex-col items-center gap-0.5 py-1 px-2 text-slate-400 hover:text-amber-400 active:scale-95 transition-transform">
+      <span class="text-sm">👥</span>
+      <span>Council</span>
+    </a>
+    <a href="#metrics" class="flex flex-col items-center gap-0.5 py-1 px-2 text-slate-400 hover:text-amber-400 active:scale-95 transition-transform">
+      <span class="text-sm">📊</span>
+      <span>Scale</span>
+    </a>
+    <a href="#logos-vault" class="flex flex-col items-center gap-0.5 py-1 px-2 text-amber-400 font-bold active:scale-95 transition-transform">
+      <span class="text-sm">🏷️</span>
+      <span>Vault</span>
+    </a>
+    <a href="#wireframes" class="flex flex-col items-center gap-0.5 py-1 px-2 text-slate-400 hover:text-amber-400 active:scale-95 transition-transform">
+      <span class="text-sm">📑</span>
+      <span>Deck</span>
+    </a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="manifesto" class="relative pt-12 sm:pt-20 pb-12 sm:pb-16 px-4 sm:px-6 overflow-hidden border-b border-slate-800/60">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(245,158,11,0.15),rgba(255,255,255,0))] pointer-events-none"></div>
+    
+    <div class="max-w-6xl mx-auto text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900 border border-slate-700 text-[10px] sm:text-xs font-mono-code text-slate-300 mb-5 shadow-inner">
+        <span class="text-amber-400 font-bold">EXECUTIVE THESIS</span>
+        <span class="text-slate-600">•</span>
+        <span>MOBILE-READY MASTER DOSSIER</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-white mb-4 sm:mb-6 leading-tight">
+        The AI Studio for the <br>
+        <span class="gold-gradient-text">Cinema Era</span>
+      </h1>
+
+      <p class="text-xs sm:text-base lg:text-lg text-slate-300 max-w-3xl mx-auto mb-8 sm:mb-10 leading-relaxed font-normal px-2">
+        Where <strong>20+ years of classical filmmaking discipline</strong>, two National Film Awards, a 2025 Filmfare editing triumph, and Cannes Grand Rail d'Or prestige converge with <strong>proprietary, ethical generative audio and video systems</strong>.
+      </p>
+
+      <!-- Problem vs Solution Cards (Mobile-first stack) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 max-w-4xl mx-auto text-left mb-10 sm:mb-14">
+        <div class="p-4 sm:p-5 rounded-xl bg-rose-950/20 border border-rose-900/30 backdrop-blur-sm">
+          <div class="flex items-center gap-1.5 text-rose-400 text-[11px] font-mono-code font-bold uppercase mb-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            The Industry's Dilemma
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Legacy film production is trapped in <strong>8–12 week timelines</strong> and multi-crore physical overheads. First-gen AI boutiques suffer from <strong>"prompt roulette"</strong>, visual artifacts, shallow acting, amateur editing rhythms, and toxic copyright liabilities.
+          </p>
+        </div>
+
+        <div class="p-4 sm:p-5 rounded-xl bg-amber-950/20 border border-amber-800/40 backdrop-blur-sm">
+          <div class="flex items-center gap-1.5 text-amber-400 text-[11px] font-mono-code font-bold uppercase mb-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            The Untitled Venture Advantage
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            We operate as an <strong>elite hybrid studio</strong>: FTII professorial craft, multi-award fiction editing, and studio finance governance directing closed-loop generative engines. <strong>5 to 7 day turnaround</strong> with <strong>up to 99% cost reduction</strong> and 100% legal indemnity.
+          </p>
+        </div>
+      </div>
+
+      <!-- Quick KPI Numbers Ribbon (Mobile 2-col, Desktop 6-col) -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3 max-w-6xl mx-auto text-left">
+
+        <div class="p-3 sm:p-4 rounded-xl glass-card flex flex-col justify-between">
+          <div class="text-xl sm:text-2xl font-extrabold font-mono-code tracking-tight text-amber-400 mb-1">26+</div>
+          <div>
+            <div class="text-[11px] sm:text-xs font-semibold text-white leading-snug mb-0.5">Major Feature Film Credits</div>
+            <div class="text-[10px] text-slate-400 leading-tight line-clamp-1 sm:line-clamp-none">Across Indian & International Cinema</div>
+          </div>
+        </div>
+        
+        <div class="p-3 sm:p-4 rounded-xl glass-card flex flex-col justify-between">
+          <div class="text-xl sm:text-2xl font-extrabold font-mono-code tracking-tight text-amber-400 mb-1">₹170+ CR</div>
+          <div>
+            <div class="text-[11px] sm:text-xs font-semibold text-white leading-snug mb-0.5">Commercial Box Office Gross</div>
+            <div class="text-[10px] text-slate-400 leading-tight line-clamp-1 sm:line-clamp-none">Global Theatrical Revenue Generated</div>
+          </div>
+        </div>
+        
+        <div class="p-3 sm:p-4 rounded-xl glass-card flex flex-col justify-between">
+          <div class="text-xl sm:text-2xl font-extrabold font-mono-code tracking-tight text-amber-400 mb-1">25+</div>
+          <div>
+            <div class="text-[11px] sm:text-xs font-semibold text-white leading-snug mb-0.5">Global Countries Reached</div>
+            <div class="text-[10px] text-slate-400 leading-tight line-clamp-1 sm:line-clamp-none">A-List International Festival Selections</div>
+          </div>
+        </div>
+        
+
+        
+        <div class="p-3 sm:p-4 rounded-xl glass-card flex flex-col justify-between">
+          <div class="text-xl sm:text-2xl font-extrabold font-mono-code tracking-tight text-amber-400 mb-1">5–7 DAYS</div>
+          <div>
+            <div class="text-[11px] sm:text-xs font-semibold text-white leading-snug mb-0.5">Rapid Production Turnaround</div>
+            <div class="text-[10px] text-slate-400 leading-tight line-clamp-1 sm:line-clamp-none">End-to-End Delivery Velocity</div>
+          </div>
+        </div>
+        
+        <div class="p-3 sm:p-4 rounded-xl glass-card flex flex-col justify-between">
+          <div class="text-xl sm:text-2xl font-extrabold font-mono-code tracking-tight text-amber-400 mb-1">UP TO 99%</div>
+          <div>
+            <div class="text-[11px] sm:text-xs font-semibold text-white leading-snug mb-0.5">Production Cost Reduction</div>
+            <div class="text-[10px] text-slate-400 leading-tight line-clamp-1 sm:line-clamp-none">Eliminating Physical Set & Crew Overheads</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: The Founding Council (Mobile-First Switcher) -->
+  <section id="council" class="py-14 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto border-b border-slate-800/60">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12">
+      <div>
+        <div class="text-[10px] sm:text-xs font-mono-code text-amber-400 uppercase tracking-wider mb-1.5">01 • LEADERSHIP & PEDIGREE</div>
+        <h2 class="text-2xl sm:text-4xl font-bold text-white tracking-tight">The Founding Council</h2>
+      </div>
+      <p class="text-xs text-slate-400 max-w-md mt-2 md:mt-0">
+        Five partners uniting classical national cinema honours, academic professorship, commercial agency track records, and Silicon Valley-backed AI research.
+      </p>
+    </div>
+
+    <!-- Mobile-First Horizontal Touch Strip with Snap & Fade -->
+    <div class="relative mb-6 sm:mb-8">
+      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar touch-pan-x pb-2 pt-1 scroll-mask">
+
+        <button onclick="switchFounder('nilaanjan')" id="tab-nilaanjan" class="touch-target px-4 py-2.5 rounded-xl text-xs font-medium whitespace-nowrap transition-all flex items-center gap-2 active:scale-95 shadow-sm bg-amber-500 text-slate-950 font-bold">
+          <span class="w-1.5 h-1.5 rounded-full bg-slate-950"></span>
+          <span>Nilaanjan</span>
+        </button>
+        
+        <button onclick="switchFounder('navnita')" id="tab-navnita" class="touch-target px-4 py-2.5 rounded-xl text-xs font-medium whitespace-nowrap transition-all flex items-center gap-2 active:scale-95 shadow-sm bg-slate-900/90 text-slate-300 hover:bg-slate-800">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+          <span>Navnita</span>
+        </button>
+        
+        <button onclick="switchFounder('vivek')" id="tab-vivek" class="touch-target px-4 py-2.5 rounded-xl text-xs font-medium whitespace-nowrap transition-all flex items-center gap-2 active:scale-95 shadow-sm bg-slate-900/90 text-slate-300 hover:bg-slate-800">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+          <span>Vivek</span>
+        </button>
+        
+        <button onclick="switchFounder('mansoor')" id="tab-mansoor" class="touch-target px-4 py-2.5 rounded-xl text-xs font-medium whitespace-nowrap transition-all flex items-center gap-2 active:scale-95 shadow-sm bg-slate-900/90 text-slate-300 hover:bg-slate-800">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+          <span>Mansoor</span>
+        </button>
+        
+        <button onclick="switchFounder('abhik')" id="tab-abhik" class="touch-target px-4 py-2.5 rounded-xl text-xs font-medium whitespace-nowrap transition-all flex items-center gap-2 active:scale-95 shadow-sm bg-slate-900/90 text-slate-300 hover:bg-slate-800">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+          <span>Abhik</span>
+        </button>
+        
+      </div>
+    </div>
+
+    <!-- Partner Panels -->
+
+    <div id="panel-nilaanjan" class="founder-panel  transition-all duration-300">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
+        
+        <!-- Left: Portrait & Badges (4 cols) -->
+        <div class="lg:col-span-4 glass-card rounded-2xl p-5 sm:p-6 text-center">
+          <div class="w-full aspect-[4/5] max-h-48 sm:max-h-56 rounded-xl mb-5 sm:mb-6 bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 flex flex-col items-center justify-center p-6 text-center shadow-inner relative overflow-hidden group">
+            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-mono-code font-bold text-lg sm:text-xl mb-3 tracking-widest shadow-md">
+              NRD
+            </div>
+            <div class="text-[10px] sm:text-xs font-mono-code uppercase tracking-widest text-slate-300 font-bold">NILAANJAN REETA DATTA</div>
+            <div class="text-[9px] text-amber-400/80 font-mono-code mt-1 tracking-wider uppercase">COUNCIL MEMBER • 01</div>
+          </div>
+
+          <h3 class="text-xl sm:text-2xl font-bold text-white mb-1">Nilaanjan Reeta Datta</h3>
+          <p class="text-xs text-amber-400 font-medium mb-3 sm:mb-4 leading-snug">Director, Story Architect & Cinema Pedagogy Lead</p>
+          <div class="text-[10px] sm:text-[11px] font-mono-code text-slate-400 border-t border-slate-800 pt-3 mb-5">
+            🎓 Economics (Pune University) • PG Diploma in Film Editing (FTII Pune)
+          </div>
+
+          <!-- Laurels Container -->
+          <div class="space-y-1.5 sm:space-y-2 text-left">
+            <div class="text-[10px] font-mono-code uppercase text-slate-400 tracking-wider">Distinct Authentic Laurels:</div>
+        
+            <div class="flex items-start gap-2 p-2 sm:p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-[10px] sm:text-[11px] text-slate-200">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span class="font-semibold">2× NATIONAL FILM AWARD WINNER</span>
+            </div>
+            
+            <div class="flex items-start gap-2 p-2 sm:p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-[10px] sm:text-[11px] text-slate-200">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span class="font-semibold">PROFESSOR OF FILM EDITING (FTII PUNE)</span>
+            </div>
+            
+            <div class="flex items-start gap-2 p-2 sm:p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-[10px] sm:text-[11px] text-slate-200">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span class="font-semibold">ARAVINDAN PURUSHKARAM JURY AWARD</span>
+            </div>
+            
+            <div class="flex items-start gap-2 p-2 sm:p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-[10px] sm:text-[11px] text-slate-200">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span class="font-semibold">FOUNDER, FINCHBILL MOTION PICTURES</span>
+            </div>
+            
+          </div>
+        </div>
+
+        <!-- Right: Dossier Details (8 cols) -->
+        <div class="lg:col-span-8 space-y-4 sm:space-y-6">
+          
+          <!-- Bio Box -->
+          <div class="glass-card rounded-2xl p-5 sm:p-6">
+            <h4 class="text-[10px] sm:text-xs font-mono-code uppercase text-amber-400 tracking-wider mb-2">Executive Biography</h4>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">Nilaanjan Reeta Datta is a two-time National Film Award-winning filmmaker, screenwriter, producer, and distinguished cinema educator from Assam. An Economics graduate from Pune University, he earned his 3-year PG Diploma in Film Editing from FTII Pune, later serving as Professor and Faculty Head of Editing. He directs landmark narratives that marry ethnographic authenticity with international cinematic scale.</p>
+          </div>
+
+          <!-- Filmography & Key Works -->
+          <div class="glass-card rounded-2xl p-5 sm:p-6">
+            <h4 class="text-[10px] sm:text-xs font-mono-code uppercase text-amber-400 tracking-wider mb-3 sm:mb-4">Selected Key Works & Productions</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+        
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                <div class="text-xs font-bold text-white mb-0.5">The Head Hunter (2015)</div>
+                <div class="text-[10px] sm:text-[11px] font-mono-code text-amber-400/90 mb-1">Director & Writer</div>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">First Wancho-language feature film; won 2 National Film Awards (63rd NFA) & Aravindan Purushkaram.</p>
+              </div>
+            
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                <div class="text-xs font-bold text-white mb-0.5">Shadow Assassins (2022)</div>
+                <div class="text-[10px] sm:text-[11px] font-mono-code text-amber-400/90 mb-1">Director & Producer</div>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">Pan-India political thriller on the secret killings in Assam; starring Anurag Sinha, music by Javed Ali.</p>
+              </div>
+            
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                <div class="text-xs font-bold text-white mb-0.5">ASHWAA: Legacy In Motion</div>
+                <div class="text-[10px] sm:text-[11px] font-mono-code text-amber-400/90 mb-1">Director</div>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">Luxury equestrian & artisanal heritage brand film (2K Master).</p>
+              </div>
+            
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                <div class="text-xs font-bold text-white mb-0.5">Visitors</div>
+                <div class="text-[10px] sm:text-[11px] font-mono-code text-amber-400/90 mb-1">Executive Producer</div>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">Award-winning short film (Best Director Kolkata, Best Film Dubai).</p>
+              </div>
+            
+            </div>
+          </div>
+
+          <!-- Domain Capabilities for Untitled Venture -->
+          <div class="glass-card rounded-2xl p-5 sm:p-6">
+            <h4 class="text-[10px] sm:text-xs font-mono-code uppercase text-amber-400 tracking-wider mb-2.5 sm:mb-3">Venture Domain Capabilities</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        
+              <div class="flex items-center gap-2 p-2 rounded bg-slate-900/50 border border-slate-800/60 text-[11px] sm:text-xs text-slate-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+                <span>Feature Narrative Directing & Staging</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 rounded bg-slate-900/50 border border-slate-800/60 text-[11px] sm:text-xs text-slate-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+                <span>Classical Dramatic Montage & Pacing</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 rounded bg-slate-900/50 border border-slate-800/60 text-[11px] sm:text-xs text-slate-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+                <span>FTII Academic Mentorship & Editorial Rigor</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 rounded bg-slate-900/50 border border-slate-800/60 text-[11px] sm:text-xs text-slate-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+                <span>Indigenous & Ethnographic Lore Building</span>
+              </div>
+            
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+        
+    <div id="panel-navnita" class="founder-panel hidden transition-all duration-300">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
+        
+        <!-- Left: Portrait & Badges (4 cols) -->
+        <div class="lg:col-span-4 glass-card rounded-2xl p-5 sm:p-6 text-center">
+          <div class="w-full aspect-[4/5] max-h-48 sm:max-h-56 rounded-xl mb-5 sm:mb-6 bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 flex flex-col items-center justify-center p-6 text-center shadow-inner relative overflow-hidden group">
+            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-mono-code font-bold text-lg sm:text-xl mb-3 tracking-widest shadow-md">
+              NS
+            </div>
+            <div class="text-[10px] sm:text-xs font-mono-code uppercase tracking-widest text-slate-300 font-bold">NAVNITA SEN</div>
+            <div class="text-[9px] text-amber-400/80 font-mono-code mt-1 tracking-wider uppercase">COUNCIL MEMBER • 02</div>
+          </div>
+
+          <h3 class="text-xl sm:text-2xl font-bold text-white mb-1">Navnita Sen</h3>
+          <p class="text-xs text-amber-400 font-medium mb-3 sm:mb-4 leading-snug">Lead Film Editor, Commercial Director & Narrative Pacing Architect</p>
+          <div class="text-[10px] sm:text-[11px] font-mono-code text-slate-400 border-t border-slate-800 pt-3 mb-5">
+            🎓 BA Economics (Miranda House, Delhi University) • Master's in Editing (FTII Pune, 2004)
+          </div>
+
+          <!-- Laurels Container -->
+          <div class="space-y-1.5 sm:space-y-2 text-left">
+            <div class="text-[10px] font-mono-code uppercase text-slate-400 tracking-wider">Distinct Authentic Laurels:</div>
+        
+            <div class="flex items-start gap-2 p-2 sm:p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-[10px] sm:text-[11px] text-slate-200">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span class="font-semibold">FILMFARE AWARD WINNER (2025 BEST EDITING)</span>
+            </div>
+            
+            <div class="flex items-start gap-2 p-2 sm:p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-[10px] sm:text-[11px] text-slate-200">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span class="font-semibold">BERLINALE PANORAMA OFFICIAL SELECTION</span>
+            </div>
+            
+            <div class="flex items-start gap-2 p-2 sm:p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-[10px] sm:text-[11px] text-slate-200">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span class="font-semibold">BEST DIRECTOR (SEASFF KOLKATA)</span>
+            </div>
+            
+            <div class="flex items-start gap-2 p-2 sm:p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-[10px] sm:text-[11px] text-slate-200">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span class="font-semibold">BEST FILM (GIFF DUBAI)</span>
+            </div>
+            
+          </div>
+        </div>
+
+        <!-- Right: Dossier Details (8 cols) -->
+        <div class="lg:col-span-8 space-y-4 sm:space-y-6">
+          
+          <!-- Bio Box -->
+          <div class="glass-card rounded-2xl p-5 sm:p-6">
+            <h4 class="text-[10px] sm:text-xs font-mono-code uppercase text-amber-400 tracking-wider mb-2">Executive Biography</h4>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">Navnita Sen is a Filmfare Award-winning Film Editor and Director based in Mumbai. An Economics graduate from Miranda House, University of Delhi, she earned her Master's in Editing from FTII Pune (2004). With roots cutting fast-turnaround commercials and corporate films at TV 18 New Delhi, Prime Focus, and Apocalypso, she has edited high-stakes national advertising campaigns for Tata Starbucks (Running Cow Films) and corporate brand films (<em>More Heart Per SquareFoot</em>). Her feature film mastery earned the 2025 Filmfare Award for Best Editing (<em>Ghaath</em>, Berlinale Panorama), while her episodic work includes Amazon Prime's acclaimed legal drama <em>Guilty Minds</em>.</p>
+          </div>
+
+          <!-- Filmography & Key Works -->
+          <div class="glass-card rounded-2xl p-5 sm:p-6">
+            <h4 class="text-[10px] sm:text-xs font-mono-code uppercase text-amber-400 tracking-wider mb-3 sm:mb-4">Selected Key Works & Commercial Productions</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+        
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                <div class="text-xs font-bold text-white mb-0.5">Tata Starbucks National Campaigns</div>
+                <div class="text-[10px] sm:text-[11px] font-mono-code text-amber-400/90 mb-1">Lead Editor (Commercials)</div>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">Running Cow Films national campaigns: Diwali DC and #itstartswithyourname. High-retention narrative brand storytelling.</p>
+              </div>
+            
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                <div class="text-xs font-bold text-white mb-0.5">Corporate Brand Films & Commercials</div>
+                <div class="text-[10px] sm:text-[11px] font-mono-code text-amber-400/90 mb-1">Lead Editor (Corporate & Commercial)</div>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">More Heart Per SquareFoot real estate lifestyle film; commercial post-production suites at TV 18, Prime Focus, and Apocalypso.</p>
+              </div>
+            
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                <div class="text-xs font-bold text-white mb-0.5">Ghaath (2024)</div>
+                <div class="text-[10px] sm:text-[11px] font-mono-code text-amber-400/90 mb-1">Lead Editor (Feature Film)</div>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">Filmfare Winner for Best Editing (2025); Berlinale Panorama official selection. High-tension psychological thriller.</p>
+              </div>
+            
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                <div class="text-xs font-bold text-white mb-0.5">Daddy (2017)</div>
+                <div class="text-[10px] sm:text-[11px] font-mono-code text-amber-400/90 mb-1">Lead Editor (Feature Film)</div>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">Ashim Ahluwalia underworld crime biopic starring Arjun Rampal as Arun Gawli; celebrated non-linear timeline.</p>
+              </div>
+            
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                <div class="text-xs font-bold text-white mb-0.5">Guilty Minds & Micro-Drama</div>
+                <div class="text-[10px] sm:text-[11px] font-mono-code text-amber-400/90 mb-1">Lead Editor (Episodic & Short-Form)</div>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">Amazon Prime 10-episode courtroom drama; razor-sharp dialogue pacing and episodic narrative calibration.</p>
+              </div>
+            
+            </div>
+          </div>
+
+          <!-- Domain Capabilities for Untitled Venture -->
+          <div class="glass-card rounded-2xl p-5 sm:p-6">
+            <h4 class="text-[10px] sm:text-xs font-mono-code uppercase text-amber-400 tracking-wider mb-2.5 sm:mb-3">Venture Domain Capabilities</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        
+              <div class="flex items-center gap-2 p-2 rounded bg-slate-900/50 border border-slate-800/60 text-[11px] sm:text-xs text-slate-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+                <span>Commercial Advertising Pacing & Rapid Turnarounds</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 rounded bg-slate-900/50 border border-slate-800/60 text-[11px] sm:text-xs text-slate-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+                <span>High-Impact Corporate Storytelling & Brand Identity</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 rounded bg-slate-900/50 border border-slate-800/60 text-[11px] sm:text-xs text-slate-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+                <span>Feature Film Dramatic Tension & Structural Rhythm</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 rounded bg-slate-900/50 border border-slate-800/60 text-[11px] sm:text-xs text-slate-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+                <span>Episodic & Micro-Drama Narrative Calibration</span>
+              </div>
+            
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+        
+    <div id="panel-vivek" class="founder-panel hidden transition-all duration-300">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
+        
+        <!-- Left: Portrait & Badges (4 cols) -->
+        <div class="lg:col-span-4 glass-card rounded-2xl p-5 sm:p-6 text-center">
+          <div class="w-full aspect-[4/5] max-h-48 sm:max-h-56 rounded-xl mb-5 sm:mb-6 bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 flex flex-col items-center justify-center p-6 text-center shadow-inner relative overflow-hidden group">
+            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-mono-code font-bold text-lg sm:text-xl mb-3 tracking-widest shadow-md">
+              VR
+            </div>
+            <div class="text-[10px] sm:text-xs font-mono-code uppercase tracking-widest text-slate-300 font-bold">VIVEK RANGACHARI</div>
+            <div class="text-[9px] text-amber-400/80 font-mono-code mt-1 tracking-wider uppercase">COUNCIL MEMBER • 03</div>
+          </div>
+
+          <h3 class="text-xl sm:text-2xl font-bold text-white mb-1">Vivek Rangachari</h3>
+          <p class="text-xs text-amber-400 font-medium mb-3 sm:mb-4 leading-snug">Feature Film Producer & Commercial Studio Strategist</p>
+          <div class="text-[10px] sm:text-[11px] font-mono-code text-slate-400 border-t border-slate-800 pt-3 mb-5">
+            🎓 Studio Production, Entertainment Finance & Film Business Management
+          </div>
+
+          <!-- Laurels Container -->
+          <div class="space-y-1.5 sm:space-y-2 text-left">
+            <div class="text-[10px] font-mono-code uppercase text-slate-400 tracking-wider">Distinct Authentic Laurels:</div>
+        
+            <div class="flex items-start gap-2 p-2 sm:p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-[10px] sm:text-[11px] text-slate-200">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span class="font-semibold">24+ MAJOR MOTION PICTURE CREDITS</span>
+            </div>
+            
+            <div class="flex items-start gap-2 p-2 sm:p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-[10px] sm:text-[11px] text-slate-200">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span class="font-semibold">BAFTA NOMINEE (BEST FILM NOT IN ENGLISH)</span>
+            </div>
+            
+            <div class="flex items-start gap-2 p-2 sm:p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-[10px] sm:text-[11px] text-slate-200">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span class="font-semibold">CANNES GRAND RAIL D'OR (THE LUNCHBOX)</span>
+            </div>
+            
+            <div class="flex items-start gap-2 p-2 sm:p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-[10px] sm:text-[11px] text-slate-200">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span class="font-semibold">₹170+ CR BOX OFFICE BLOCKBUSTER (BALA)</span>
+            </div>
+            
+          </div>
+        </div>
+
+        <!-- Right: Dossier Details (8 cols) -->
+        <div class="lg:col-span-8 space-y-4 sm:space-y-6">
+          
+          <!-- Bio Box -->
+          <div class="glass-card rounded-2xl p-5 sm:p-6">
+            <h4 class="text-[10px] sm:text-xs font-mono-code uppercase text-amber-400 tracking-wider mb-2">Executive Biography</h4>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">Vivek Rangachari is one of India's premier studio producers and film executives. Formerly leading DAR Motion Pictures, Vivek has packaged and produced 24+ feature films that bridge international arthouse triumphs (Cannes Critics' Week, BAFTA, Sundance, Berlinale) with major Bollywood commercial blockbusters.</p>
+          </div>
+
+          <!-- Filmography & Key Works -->
+          <div class="glass-card rounded-2xl p-5 sm:p-6">
+            <h4 class="text-[10px] sm:text-xs font-mono-code uppercase text-amber-400 tracking-wider mb-3 sm:mb-4">Selected Key Works & Productions</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+        
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                <div class="text-xs font-bold text-white mb-0.5">The Lunchbox (2013)</div>
+                <div class="text-[10px] sm:text-[11px] font-mono-code text-amber-400/90 mb-1">Co-Producer</div>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">Irrfan Khan, Nimrat Kaur; Cannes Grand Rail d'Or, BAFTA Nominee, $18M+ global theatrical hit via Sony Pictures Classics.</p>
+              </div>
+            
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                <div class="text-xs font-bold text-white mb-0.5">Bala (2019)</div>
+                <div class="text-[10px] sm:text-[11px] font-mono-code text-amber-400/90 mb-1">Co-Producer</div>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">Ayushmann Khurrana, Bhumi Pednekar; Dinesh Vijan / Maddock / Jio Studios hit grossing ₹171.5 Cr.</p>
+              </div>
+            
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                <div class="text-xs font-bold text-white mb-0.5">Ugly (2013)</div>
+                <div class="text-[10px] sm:text-[11px] font-mono-code text-amber-400/90 mb-1">Producer</div>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">Anurag Kashyap neo-noir thriller; premiered at Cannes Directors' Fortnight.</p>
+              </div>
+            
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                <div class="text-xs font-bold text-white mb-0.5">D-Day (2013)</div>
+                <div class="text-[10px] sm:text-[11px] font-mono-code text-amber-400/90 mb-1">Producer</div>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">Nikhil Advani espionage thriller starring Rishi Kapoor & Irrfan Khan; 2 National Film Awards.</p>
+              </div>
+            
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                <div class="text-xs font-bold text-white mb-0.5">Photograph (2019)</div>
+                <div class="text-[10px] sm:text-[11px] font-mono-code text-amber-400/90 mb-1">Executive Producer</div>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">Ritesh Batra; official selection at Sundance and Berlin International Film Festival.</p>
+              </div>
+            
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                <div class="text-xs font-bold text-white mb-0.5">800 (2023)</div>
+                <div class="text-[10px] sm:text-[11px] font-mono-code text-amber-400/90 mb-1">Producer</div>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">Official biographical drama on Sri Lankan cricket legend Muttiah Muralitharan.</p>
+              </div>
+            
+            </div>
+          </div>
+
+          <!-- Domain Capabilities for Untitled Venture -->
+          <div class="glass-card rounded-2xl p-5 sm:p-6">
+            <h4 class="text-[10px] sm:text-xs font-mono-code uppercase text-amber-400 tracking-wider mb-2.5 sm:mb-3">Venture Domain Capabilities</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        
+              <div class="flex items-center gap-2 p-2 rounded bg-slate-900/50 border border-slate-800/60 text-[11px] sm:text-xs text-slate-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+                <span>Institutional Studio Packaging & Talent Deals</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 rounded bg-slate-900/50 border border-slate-800/60 text-[11px] sm:text-xs text-slate-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+                <span>International Co-Production & Treaty Structuring</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 rounded bg-slate-900/50 border border-slate-800/60 text-[11px] sm:text-xs text-slate-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+                <span>OTT & Theatrical Distribution (Jio, Amazon, Sony)</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 rounded bg-slate-900/50 border border-slate-800/60 text-[11px] sm:text-xs text-slate-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+                <span>Budget Optimization & Capital Governance</span>
+              </div>
+            
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+        
+    <div id="panel-mansoor" class="founder-panel hidden transition-all duration-300">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
+        
+        <!-- Left: Portrait & Badges (4 cols) -->
+        <div class="lg:col-span-4 glass-card rounded-2xl p-5 sm:p-6 text-center">
+          <div class="w-full aspect-[4/5] max-h-48 sm:max-h-56 rounded-xl mb-5 sm:mb-6 bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 flex flex-col items-center justify-center p-6 text-center shadow-inner relative overflow-hidden group">
+            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-mono-code font-bold text-lg sm:text-xl mb-3 tracking-widest shadow-md">
+              MRK
+            </div>
+            <div class="text-[10px] sm:text-xs font-mono-code uppercase tracking-widest text-slate-300 font-bold">MANSOOR RAHIMAT KHAN</div>
+            <div class="text-[9px] text-amber-400/80 font-mono-code mt-1 tracking-wider uppercase">COUNCIL MEMBER • 04</div>
+          </div>
+
+          <h3 class="text-xl sm:text-2xl font-bold text-white mb-1">Mansoor Rahimat Khan</h3>
+          <p class="text-xs text-amber-400 font-medium mb-3 sm:mb-4 leading-snug">Audio AI Architect, Venture Lead & CEO at Beatoven.ai</p>
+          <div class="text-[10px] sm:text-[11px] font-mono-code text-slate-400 border-t border-slate-800 pt-3 mb-5">
+            🎓 MS in Music Technology (Georgia Tech CMT) • Derivatives Trading (Edelweiss)
+          </div>
+
+          <!-- Laurels Container -->
+          <div class="space-y-1.5 sm:space-y-2 text-left">
+            <div class="text-[10px] font-mono-code uppercase text-slate-400 tracking-wider">Distinct Authentic Laurels:</div>
+        
+            <div class="flex items-start gap-2 p-2 sm:p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-[10px] sm:text-[11px] text-slate-200">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span class="font-semibold">FORBES 30 UNDER 30 ASIA HONOREE</span>
+            </div>
+            
+            <div class="flex items-start gap-2 p-2 sm:p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-[10px] sm:text-[11px] text-slate-200">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span class="font-semibold">UNITED STATES O-1A EXTRAORDINARY ABILITY</span>
+            </div>
+            
+            <div class="flex items-start gap-2 p-2 sm:p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-[10px] sm:text-[11px] text-slate-200">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span class="font-semibold">GEORGIA TECH CMT / $1M+ VC BACKED</span>
+            </div>
+            
+            <div class="flex items-start gap-2 p-2 sm:p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-[10px] sm:text-[11px] text-slate-200">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span class="font-semibold">7th GENERATION DHARWAD SITAR VIRTUOSO</span>
+            </div>
+            
+          </div>
+        </div>
+
+        <!-- Right: Dossier Details (8 cols) -->
+        <div class="lg:col-span-8 space-y-4 sm:space-y-6">
+          
+          <!-- Bio Box -->
+          <div class="glass-card rounded-2xl p-5 sm:p-6">
+            <h4 class="text-[10px] sm:text-xs font-mono-code uppercase text-amber-400 tracking-wider mb-2">Executive Biography</h4>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">Mansoor Rahimat Khan is a venture-backed founder, audio AI researcher, and 7th-generation Sitar virtuoso of the Dharwad Gharana. As Co-founder and CEO of Beatoven.ai (backed by Info Edge and Entrepreneur First), Mansoor pioneered the world's leading ethical creator-first AI music generation engine trained on 3,000,000+ legally cleared stems.</p>
+          </div>
+
+          <!-- Filmography & Key Works -->
+          <div class="glass-card rounded-2xl p-5 sm:p-6">
+            <h4 class="text-[10px] sm:text-xs font-mono-code uppercase text-amber-400 tracking-wider mb-3 sm:mb-4">Selected Key Works & Productions</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+        
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                <div class="text-xs font-bold text-white mb-0.5">Beatoven.ai Platform</div>
+                <div class="text-[10px] sm:text-[11px] font-mono-code text-amber-400/90 mb-1">Co-Founder & CEO</div>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">Ethical generative audio platform serving 500,000+ global video and game creators.</p>
+              </div>
+            
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                <div class="text-xs font-bold text-white mb-0.5">Maestro Foundation Model</div>
+                <div class="text-[10px] sm:text-[11px] font-mono-code text-amber-400/90 mb-1">Architecture Lead</div>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">100% legally indemnified neural audio synthesis trained on 3,000,000+ human artist stems.</p>
+              </div>
+            
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                <div class="text-xs font-bold text-white mb-0.5">TechCrunch Disrupt Battlefield 200</div>
+                <div class="text-[10px] sm:text-[11px] font-mono-code text-amber-400/90 mb-1">Honoree</div>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">Selected among top 200 global tech startups in San Francisco (2022).</p>
+              </div>
+            
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                <div class="text-xs font-bold text-white mb-0.5">Amsterdam Dance Event (ADE)</div>
+                <div class="text-[10px] sm:text-[11px] font-mono-code text-amber-400/90 mb-1">Selected Founder</div>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">1 of 8 global music-tech founders selected for ADE European tech delegation.</p>
+              </div>
+            
+            </div>
+          </div>
+
+          <!-- Domain Capabilities for Untitled Venture -->
+          <div class="glass-card rounded-2xl p-5 sm:p-6">
+            <h4 class="text-[10px] sm:text-xs font-mono-code uppercase text-amber-400 tracking-wider mb-2.5 sm:mb-3">Venture Domain Capabilities</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        
+              <div class="flex items-center gap-2 p-2 rounded bg-slate-900/50 border border-slate-800/60 text-[11px] sm:text-xs text-slate-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+                <span>Ethical Generative Audio Architecture</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 rounded bg-slate-900/50 border border-slate-800/60 text-[11px] sm:text-xs text-slate-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+                <span>Silicon Valley VC & Global Tech Ecosystems</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 rounded bg-slate-900/50 border border-slate-800/60 text-[11px] sm:text-xs text-slate-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+                <span>Advanced Music Information Retrieval (MIR)</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 rounded bg-slate-900/50 border border-slate-800/60 text-[11px] sm:text-xs text-slate-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+                <span>Commercial Product Scaling to 500k+ Users</span>
+              </div>
+            
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+        
+    <div id="panel-abhik" class="founder-panel hidden transition-all duration-300">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
+        
+        <!-- Left: Portrait & Badges (4 cols) -->
+        <div class="lg:col-span-4 glass-card rounded-2xl p-5 sm:p-6 text-center">
+          <div class="w-full aspect-[4/5] max-h-48 sm:max-h-56 rounded-xl mb-5 sm:mb-6 bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 flex flex-col items-center justify-center p-6 text-center shadow-inner relative overflow-hidden group">
+            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-mono-code font-bold text-lg sm:text-xl mb-3 tracking-widest shadow-md">
+              AC
+            </div>
+            <div class="text-[10px] sm:text-xs font-mono-code uppercase tracking-widest text-slate-300 font-bold">ABHIK CHATTERJEE</div>
+            <div class="text-[9px] text-amber-400/80 font-mono-code mt-1 tracking-wider uppercase">COUNCIL MEMBER • 05</div>
+          </div>
+
+          <h3 class="text-xl sm:text-2xl font-bold text-white mb-1">Abhik Chatterjee (abhikism)</h3>
+          <p class="text-xs text-amber-400 font-medium mb-3 sm:mb-4 leading-snug">AI Filmmaker, Creative Technologist, Systems Architect & Composer</p>
+          <div class="text-[10px] sm:text-[11px] font-mono-code text-slate-400 border-t border-slate-800 pt-3 mb-5">
+            🎓 Advertising & Mass Communication (St. Xavier's College Kolkata) • Creative Systems Engineering
+          </div>
+
+          <!-- Laurels Container -->
+          <div class="space-y-1.5 sm:space-y-2 text-left">
+            <div class="text-[10px] font-mono-code uppercase text-slate-400 tracking-wider">Distinct Authentic Laurels:</div>
+        
+            <div class="flex items-start gap-2 p-2 sm:p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-[10px] sm:text-[11px] text-slate-200">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span class="font-semibold">BEATOVEN.AI CREATIVE PRODUCER (MAESTRO ON FAL.AI)</span>
+            </div>
+            
+            <div class="flex items-start gap-2 p-2 sm:p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-[10px] sm:text-[11px] text-slate-200">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span class="font-semibold">OGILVY & MATHER AD MUSIC COMPOSER</span>
+            </div>
+            
+            <div class="flex items-start gap-2 p-2 sm:p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-[10px] sm:text-[11px] text-slate-200">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span class="font-semibold">SOHUM SHAH FILMS COMPOSER (251, CABBAGE)</span>
+            </div>
+            
+            <div class="flex items-start gap-2 p-2 sm:p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-[10px] sm:text-[11px] text-slate-200">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span class="font-semibold">RUSK MEDIA AI MICRODRAMA PRODUCER (TAJ)</span>
+            </div>
+            
+          </div>
+        </div>
+
+        <!-- Right: Dossier Details (8 cols) -->
+        <div class="lg:col-span-8 space-y-4 sm:space-y-6">
+          
+          <!-- Bio Box -->
+          <div class="glass-card rounded-2xl p-5 sm:p-6">
+            <h4 class="text-[10px] sm:text-xs font-mono-code uppercase text-amber-400 tracking-wider mb-2">Executive Biography</h4>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">Abhik Chatterjee is an AI filmmaker, creative producer, music composer, and systems architect operating at the convergence of commercial advertising, cinema scoring, and autonomous generative media. As Creative Producer at Beatoven.ai, he co-architected the launch of the flagship 'maestro' SFX model on fal.ai. In advertising, he has scored campaigns for Ogilvy & Mather, Little Lamb Films, HUL, Parle-G, and Airtel.</p>
+          </div>
+
+          <!-- Filmography & Key Works -->
+          <div class="glass-card rounded-2xl p-5 sm:p-6">
+            <h4 class="text-[10px] sm:text-xs font-mono-code uppercase text-amber-400 tracking-wider mb-3 sm:mb-4">Selected Key Works & Productions</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+        
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                <div class="text-xs font-bold text-white mb-0.5">251 (Short 2023 - IMDb nm15484433)</div>
+                <div class="text-[10px] sm:text-[11px] font-mono-code text-amber-400/90 mb-1">Composer (Original Score)</div>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">Dir. Bauddhayan Mukherji (Little Lamb); Produced by Sohum Shah; Cinematography by Ranjan Palit; Editing by Sanyukta Kaza.</p>
+              </div>
+            
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                <div class="text-xs font-bold text-white mb-0.5">Cabbage (Short 2024)</div>
+                <div class="text-[10px] sm:text-[11px] font-mono-code text-amber-400/90 mb-1">Composer (Original Score)</div>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">Produced by Sohum Shah Films; Sound Design by Pritam Das; starring Moon Moon Sen & Sabyasachi Chakrabarty.</p>
+              </div>
+            
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                <div class="text-xs font-bold text-white mb-0.5">HUL - Swachhta Ki Sawari At Kumbh</div>
+                <div class="text-[10px] sm:text-[11px] font-mono-code text-amber-400/90 mb-1">Composer & Field Recordist</div>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">Ogilvy & Mather / Little Lamb Films; captured authentic Prayagraj boatmen vocals.</p>
+              </div>
+            
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                <div class="text-xs font-bold text-white mb-0.5">Parle-G - Roko Mat Toko Mat TVCs</div>
+                <div class="text-[10px] sm:text-[11px] font-mono-code text-amber-400/90 mb-1">Music Composer</div>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">Ogilvy & Mather / Little Lamb Films national commercials directed by Vibhu Puri.</p>
+              </div>
+            
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                <div class="text-xs font-bold text-white mb-0.5">TAJ — AI Micro Feature Series</div>
+                <div class="text-[10px] sm:text-[11px] font-mono-code text-amber-400/90 mb-1">AI Creative Producer</div>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">Rusk Media / Alright TV vertical micro-drama series.</p>
+              </div>
+            
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80">
+                <div class="text-xs font-bold text-white mb-0.5">Rusk AI Video SRT & MindFlow Tools</div>
+                <div class="text-[10px] sm:text-[11px] font-mono-code text-amber-400/90 mb-1">Lead Architect & Developer</div>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">Automated video-to-SRT subtitle extraction, multilingual translation, and local-first narrative canvas.</p>
+              </div>
+            
+            </div>
+          </div>
+
+          <!-- Domain Capabilities for Untitled Venture -->
+          <div class="glass-card rounded-2xl p-5 sm:p-6">
+            <h4 class="text-[10px] sm:text-xs font-mono-code uppercase text-amber-400 tracking-wider mb-2.5 sm:mb-3">Venture Domain Capabilities</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        
+              <div class="flex items-center gap-2 p-2 rounded bg-slate-900/50 border border-slate-800/60 text-[11px] sm:text-xs text-slate-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+                <span>Human-in-the-Loop AI Filmmaking Pipelines</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 rounded bg-slate-900/50 border border-slate-800/60 text-[11px] sm:text-xs text-slate-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+                <span>Mainline Advertising Music & Sonic Identity</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 rounded bg-slate-900/50 border border-slate-800/60 text-[11px] sm:text-xs text-slate-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+                <span>Film Scoring, Live Field Recording & -14 LUFS Mastering</span>
+              </div>
+            
+              <div class="flex items-center gap-2 p-2 rounded bg-slate-900/50 border border-slate-800/60 text-[11px] sm:text-xs text-slate-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+                <span>Autonomous Tooling & Workflow Automation</span>
+              </div>
+            
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+        
+  </section>
+
+  <!-- Section 2: Proven Scale & Verified Metrics (Mobile-First Cards + Desktop Table) -->
+  <section id="metrics" class="py-14 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto border-b border-slate-800/60">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12">
+      <div>
+        <div class="text-[10px] sm:text-xs font-mono-code text-amber-400 uppercase tracking-wider mb-1.5">02 • VERIFIED AUDIT DATA</div>
+        <h2 class="text-2xl sm:text-4xl font-bold text-white tracking-tight">Proven Scale & Detailed Metrics</h2>
+      </div>
+      <p class="text-xs text-slate-400 max-w-md mt-2 md:mt-0">
+        Every number presented is grounded in audited theatrical records, national film registries, venture funding rounds, and client receipts.
+      </p>
+    </div>
+
+    <!-- Top Headline 6 Cards Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 mb-8 sm:mb-12">
+
+      <div class="glass-card rounded-2xl p-4 sm:p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-2 sm:mb-3">
+            <span class="text-2xl sm:text-3xl font-black text-amber-400 font-mono-code">26+</span>
+            <span class="text-[9px] sm:text-[10px] font-mono-code px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-800 text-emerald-300">AUDITED</span>
+          </div>
+          <h3 class="text-sm sm:text-base font-bold text-white mb-0.5 sm:mb-1">Major Feature Film Credits</h3>
+          <p class="text-[11px] sm:text-xs text-slate-400 mb-3 sm:mb-4">Across Indian & International Cinema</p>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-[10px] sm:text-[11px] text-slate-300 leading-relaxed">
+          Verified feature catalog across founding team: The Lunchbox, Ghaath, Ugly, D-Day, Bala, Daddy, Shadow Assassins, The Head Hunter, Photograph, 800, Bucket List, Haraamkhor, 251, Cabbage, Visitors, Vishaad, Hasina, Breathe, Bhanga Gara.
+        </div>
+      </div>
+        
+      <div class="glass-card rounded-2xl p-4 sm:p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-2 sm:mb-3">
+            <span class="text-2xl sm:text-3xl font-black text-amber-400 font-mono-code">₹170+ CR</span>
+            <span class="text-[9px] sm:text-[10px] font-mono-code px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-800 text-emerald-300">AUDITED</span>
+          </div>
+          <h3 class="text-sm sm:text-base font-bold text-white mb-0.5 sm:mb-1">Commercial Box Office Gross</h3>
+          <p class="text-[11px] sm:text-xs text-slate-400 mb-3 sm:mb-4">Global Theatrical Revenue Generated</p>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-[10px] sm:text-[11px] text-slate-300 leading-relaxed">
+          Commercial blockbuster Bala grossed ₹171.5 Cr worldwide (Maddock / Jio Studios), alongside global crossover sensation The Lunchbox generating over $18M+ (₹120+ Cr) across international markets via Sony Pictures Classics.
+        </div>
+      </div>
+        
+      <div class="glass-card rounded-2xl p-4 sm:p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-2 sm:mb-3">
+            <span class="text-2xl sm:text-3xl font-black text-amber-400 font-mono-code">50+</span>
+            <span class="text-[9px] sm:text-[10px] font-mono-code px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-800 text-emerald-300">AUDITED</span>
+          </div>
+          <h3 class="text-sm sm:text-base font-bold text-white mb-0.5 sm:mb-1">National Brand Campaigns & Ads</h3>
+          <p class="text-[11px] sm:text-xs text-slate-400 mb-3 sm:mb-4">Blue-Chip Commercial Advertising Repertoire</p>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-[10px] sm:text-[11px] text-slate-300 leading-relaxed">
+          50+ major commercial campaign deliveries across blue-chip brands (Hindustan Unilever, Brooke Bond Red Label, Tata Starbucks, Parle-G, Amazon Prime Video, Bharti Airtel, Godrej Properties, Coolwinks, Onida, Max Fashion) created in collaboration with Ogilvy & Mather, Little Lamb Films, and national broadcast networks.
+        </div>
+      </div>
+        
+      <div class="glass-card rounded-2xl p-4 sm:p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-2 sm:mb-3">
+            <span class="text-2xl sm:text-3xl font-black text-amber-400 font-mono-code">30+</span>
+            <span class="text-[9px] sm:text-[10px] font-mono-code px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-800 text-emerald-300">AUDITED</span>
+          </div>
+          <h3 class="text-sm sm:text-base font-bold text-white mb-0.5 sm:mb-1">Global Territories & Reach</h3>
+          <p class="text-[11px] sm:text-xs text-slate-400 mb-3 sm:mb-4">Theatrical Releases, Global Tech & Festivals</p>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-[10px] sm:text-[11px] text-slate-300 leading-relaxed">
+          Official theatrical releases & festival selections across France (Cannes), Germany (Berlinale), USA (Sundance, IFFLA), UK (BAFTA), UAE/GCC (Dubai), Singapore, South Korea. Mansoor Rahimat Khan's Beatoven.ai powers a global creator ecosystem across North America, Europe (EF London), and Asia.
+        </div>
+      </div>
+        
+
+        
+      <div class="glass-card rounded-2xl p-4 sm:p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-2 sm:mb-3">
+            <span class="text-2xl sm:text-3xl font-black text-amber-400 font-mono-code">5–7 DAYS</span>
+            <span class="text-[9px] sm:text-[10px] font-mono-code px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-800 text-emerald-300">AUDITED</span>
+          </div>
+          <h3 class="text-sm sm:text-base font-bold text-white mb-0.5 sm:mb-1">Rapid Production Turnaround</h3>
+          <p class="text-[11px] sm:text-xs text-slate-400 mb-3 sm:mb-4">End-to-End Delivery Velocity</p>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-[10px] sm:text-[11px] text-slate-300 leading-relaxed">
+          Full project lifecycle compressed from legacy 8–12 week agency timelines down to 5 to 7 business days, eliminating multi-week casting, physical location scouting, permits, camera crew logistics, and physical shoot delays.
+        </div>
+      </div>
+        
+      <div class="glass-card rounded-2xl p-4 sm:p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-2 sm:mb-3">
+            <span class="text-2xl sm:text-3xl font-black text-amber-400 font-mono-code">UP TO 99%</span>
+            <span class="text-[9px] sm:text-[10px] font-mono-code px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-800 text-emerald-300">AUDITED</span>
+          </div>
+          <h3 class="text-sm sm:text-base font-bold text-white mb-0.5 sm:mb-1">Production Cost Reduction</h3>
+          <p class="text-[11px] sm:text-xs text-slate-400 mb-3 sm:mb-4">Eliminating Physical Set & Crew Overheads</p>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-[10px] sm:text-[11px] text-slate-300 leading-relaxed">
+          Eliminates multi-crore physical set construction, multi-camera crews, location permits, travel logistics, and bloated agency overheads. Delivers multi-crore cinematic grandeur at a tiny fraction of legacy agency fees.
+        </div>
+      </div>
+        
+    </div>
+
+    <!-- Mobile-Native Verification Cards (Shown on mobile < 768px) -->
+    <div class="block md:hidden space-y-3 mb-6">
+      <h3 class="text-xs font-bold text-white mb-2 flex items-center gap-1.5 font-mono-code">
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+        INSTITUTIONAL VERIFICATION INDEX (MOBILE)
+      </h3>
+
+      <div class="glass-card rounded-xl p-3.5 space-y-1">
+        <div class="flex items-center justify-between text-xs font-bold text-white">
+          <span>Theatrical Features</span>
+          <span class="font-mono-code text-amber-400">26+ Titles</span>
+        </div>
+        <p class="text-[10px] text-slate-300 leading-relaxed">The Lunchbox, Ghaath, Ugly, D-Day, Bala, Daddy, Shadow Assassins, The Head Hunter, Photograph, 800, Bucket List, Haraamkhor, 251, Cabbage, Visitors, Vishaad, Hasina, Breathe, Bhanga Gara.</p>
+        <div class="text-[9px] font-mono-code text-slate-400 pt-1 border-t border-slate-800">Attr: Vivek, Navnita, Nilaanjan, Abhik</div>
+      </div>
+
+      <div class="glass-card rounded-xl p-3.5 space-y-1">
+        <div class="flex items-center justify-between text-xs font-bold text-white">
+          <span>Commercial Box Office</span>
+          <span class="font-mono-code text-amber-400">₹170+ Crore</span>
+        </div>
+        <p class="text-[10px] text-slate-300 leading-relaxed">Bala worldwide gross ₹171.5 Cr (Maddock / Jio Studios); The Lunchbox $18M+ (₹120+ Cr worldwide via Sony Pictures Classics).</p>
+        <div class="text-[9px] font-mono-code text-slate-400 pt-1 border-t border-slate-800">Attr: Vivek Rangachari</div>
+      </div>
+
+      <div class="glass-card rounded-xl p-3.5 space-y-1">
+        <div class="flex items-center justify-between text-xs font-bold text-white">
+          <span>Commercials & Brand Campaigns</span>
+          <span class="font-mono-code text-amber-400">50+ Campaigns</span>
+        </div>
+        <p class="text-[10px] text-slate-300 leading-relaxed">HUL (Kumbh Swachhta), Brooke Bond Red Label (Tea for Trash, 2 Blends), Tata Starbucks (Diwali DC, #itstartswithyourname), Parle-G (Mother & Son / Soldier), Amazon Prime Video, Godrej Properties, Bharti Airtel, Coolwinks, Onida, Max Fashion, Enerzal, TOI, TV18 promos, abhikismBLACK.</p>
+        <div class="text-[9px] font-mono-code text-slate-400 pt-1 border-t border-slate-800">Attr: Abhik Chatterjee, Navnita Sen</div>
+      </div>
+
+      <div class="glass-card rounded-xl p-3.5 space-y-1">
+        <div class="flex items-center justify-between text-xs font-bold text-white">
+          <span>International Reach</span>
+          <span class="font-mono-code text-amber-400">30+ Nations</span>
+        </div>
+        <p class="text-[10px] text-slate-300 leading-relaxed">Theatrical releases and festival selections across Cannes (France), Berlinale (Germany), BAFTA (UK), Sundance (USA), UAE/Dubai. Mansoor Rahimat Khan's Beatoven.ai serves a global creator ecosystem across North America, Europe (Entrepreneur First London), and Asia.</p>
+        <div class="text-[9px] font-mono-code text-slate-400 pt-1 border-t border-slate-800">Attr: Vivek, Mansoor, Navnita, Nilaanjan</div>
+      </div>
+
+
+
+      <div class="glass-card rounded-xl p-3.5 space-y-1">
+        <div class="flex items-center justify-between text-xs font-bold text-white">
+          <span>Production Velocity</span>
+          <span class="font-mono-code text-amber-400">5 to 7 Days</span>
+        </div>
+        <p class="text-[10px] text-slate-300 leading-relaxed">Elimination of multi-week casting calls, physical scout permits, set construction, and camera crew transport.</p>
+        <div class="text-[9px] font-mono-code text-slate-400 pt-1 border-t border-slate-800">Attr: All 5 Partners</div>
+      </div>
+
+      <div class="glass-card rounded-xl p-3.5 space-y-1">
+        <div class="flex items-center justify-between text-xs font-bold text-white">
+          <span>Cost Reduction</span>
+          <span class="font-mono-code text-amber-400">Up to 99%</span>
+        </div>
+        <p class="text-[10px] text-slate-300 leading-relaxed">Legacy multi-crore physical shoot budgets replaced by closed-loop director-driven generative pipelines and studio licensing.</p>
+        <div class="text-[9px] font-mono-code text-slate-400 pt-1 border-t border-slate-800">Attr: All 5 Partners</div>
+      </div>
+    </div>
+
+    <!-- Desktop Tabular Index (Shown on desktop >= 768px) -->
+    <div class="hidden md:block glass-card rounded-2xl p-6 overflow-x-auto">
+      <h3 class="text-sm font-bold text-white mb-4 flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+        Full Institutional Verification Index
+      </h3>
+      <table class="w-full text-left text-xs text-slate-300">
+        <thead class="border-b border-slate-800 text-slate-400 font-mono-code text-[11px]">
+          <tr>
+            <th class="py-3 px-4">Metric Scope</th>
+            <th class="py-3 px-4">Value</th>
+            <th class="py-3 px-4">Direct Verification & Project Source</th>
+            <th class="py-3 px-4">Founders Attributed</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-800/60">
+          <tr>
+            <td class="py-3.5 px-4 font-semibold text-white">Theatrical Features</td>
+            <td class="py-3.5 px-4 font-mono-code text-amber-400">26+ Titles</td>
+            <td class="py-3.5 px-4 text-slate-300">The Lunchbox, Ghaath, Ugly, D-Day, Bala, Daddy, Shadow Assassins, The Head Hunter, Photograph, 800, Bucket List, Haraamkhor, 251, Cabbage, Visitors, Vishaad, Hasina, Breathe, Bhanga Gara.</td>
+            <td class="py-3.5 px-4 text-slate-400">Vivek, Navnita, Nilaanjan, Abhik</td>
+          </tr>
+          <tr>
+            <td class="py-3.5 px-4 font-semibold text-white">Commercial Box Office</td>
+            <td class="py-3.5 px-4 font-mono-code text-amber-400">₹170+ Crore</td>
+            <td class="py-3.5 px-4 text-slate-300">Bala worldwide gross ₹171.5 Cr (Maddock / Jio Studios); The Lunchbox $18M+ (₹120+ Cr worldwide via Sony Pictures Classics).</td>
+            <td class="py-3.5 px-4 text-slate-400">Vivek Rangachari</td>
+          </tr>
+          <tr>
+            <td class="py-3.5 px-4 font-semibold text-white">National Ads & Brand Campaigns</td>
+            <td class="py-3.5 px-4 font-mono-code text-amber-400">50+ Campaigns</td>
+            <td class="py-3.5 px-4 text-slate-300">HUL (Kumbh Swachhta), Brooke Bond Red Label (Tea for Trash, 2 Blends), Tata Starbucks (Diwali DC, #itstartswithyourname), Parle-G (Mother & Son / Soldier), Amazon Prime Video (Made in Heaven), Godrej Properties (More Heart Per SquareFoot), Bharti Airtel (26% Faster Streaming), Coolwinks (6 films), Onida AC, Max Fashion, Enerzal, Times of India, Balaji Motion Pictures, TV18 & Prime Focus post-production, abhikismBLACK.</td>
+            <td class="py-3.5 px-4 text-slate-400">Abhik Chatterjee, Navnita Sen</td>
+          </tr>
+          <tr>
+            <td class="py-3.5 px-4 font-semibold text-white">International Reach</td>
+            <td class="py-3.5 px-4 font-mono-code text-amber-400">30+ Nations</td>
+            <td class="py-3.5 px-4 text-slate-300">Theatrical releases & selections across France (Cannes Grand Rail d'Or), Germany (Berlinale), USA (Sundance, IFFLA), UK (BAFTA), UAE/GCC (Dubai), Rotterdam, Karlovy Vary, Busan. Mansoor Rahimat Khan's Beatoven.ai operates globally across North America, Europe (Entrepreneur First London), and Asia with a worldwide creator community.</td>
+            <td class="py-3.5 px-4 text-slate-400">Vivek, Mansoor, Navnita, Nilaanjan</td>
+          </tr>
+
+          <tr>
+            <td class="py-3.5 px-4 font-semibold text-white">Production Velocity</td>
+            <td class="py-3.5 px-4 font-mono-code text-amber-400">5 to 7 Days</td>
+            <td class="py-3.5 px-4 text-slate-300">Elimination of multi-week casting calls, physical scout permits, set construction, and camera crew transport.</td>
+            <td class="py-3.5 px-4 text-slate-400">All 5 Partners</td>
+          </tr>
+          <tr>
+            <td class="py-3.5 px-4 font-semibold text-white">Cost Reduction</td>
+            <td class="py-3.5 px-4 font-mono-code text-amber-400">Up to 99%</td>
+            <td class="py-3.5 px-4 text-slate-300">Legacy multi-crore physical shoot budgets replaced by closed-loop director-driven generative pipelines and studio licensing.</td>
+            <td class="py-3.5 px-4 text-slate-400">All 5 Partners</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section 3: Commercial Advertising, Repertoire & Film Scores -->
+  <section id="campaigns" class="py-14 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto border-b border-slate-800/60">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12">
+      <div>
+        <div class="text-[10px] sm:text-xs font-mono-code text-amber-400 uppercase tracking-wider mb-1.5">03 • BRAND CLIENTS & MUSIC SCORES</div>
+        <h2 class="text-2xl sm:text-4xl font-bold text-white tracking-tight">Mainline Commercial Repertoire</h2>
+      </div>
+      <p class="text-xs text-slate-400 max-w-md mt-2 md:mt-0">
+        Decades of television, digital, and fiction cinema campaign deliveries for India's largest corporate brands in collaboration with Ogilvy & Mather and premier production houses.
+      </p>
+    </div>
+
+    <!-- Campaigns Grid (Mobile 1-col, Desktop 2-col) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+
+      <!-- Navnita Sen Campaigns -->
+      <div class="glass-card rounded-xl p-4 sm:p-5 hover:border-amber-500/40 transition-all">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold text-amber-400 font-mono-code">Starbucks India</span>
+          <span class="text-[9px] sm:text-[10px] text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">Little Lamb Films</span>
+        </div>
+        <h4 class="text-xs sm:text-sm font-semibold text-white mb-1.5 sm:mb-2">Diwali DC (Diwali Delivered)</h4>
+        <div class="text-[11px] sm:text-xs text-slate-400 mb-2">
+          <strong class="text-slate-300 font-medium">Role:</strong> Lead Film Editor (Navnita Sen) • Dir. Bauddhayan Mukherji
+        </div>
+        <p class="text-[10px] sm:text-[11px] text-slate-400 bg-slate-900/50 p-2 sm:p-2.5 rounded border border-slate-800/60 leading-relaxed">
+          Festive national television commercial exploring heartfelt doorstep human connections and Indian festive warmth.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-xl p-4 sm:p-5 hover:border-amber-500/40 transition-all">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold text-amber-400 font-mono-code">Starbucks India</span>
+          <span class="text-[9px] sm:text-[10px] text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">Little Lamb Films</span>
+        </div>
+        <h4 class="text-xs sm:text-sm font-semibold text-white mb-1.5 sm:mb-2">#ItStartsWithYourName Campaign</h4>
+        <div class="text-[11px] sm:text-xs text-slate-400 mb-2">
+          <strong class="text-slate-300 font-medium">Role:</strong> Lead Film Editor (Navnita Sen) • Dir. Gunjit Chopra
+        </div>
+        <p class="text-[10px] sm:text-[11px] text-slate-400 bg-slate-900/50 p-2 sm:p-2.5 rounded border border-slate-800/60 leading-relaxed">
+          Landmark national inclusion and emotional brand identity campaign with viral cultural impact across digital and broadcast networks.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-xl p-4 sm:p-5 hover:border-amber-500/40 transition-all">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold text-amber-400 font-mono-code">Godrej Properties</span>
+          <span class="text-[9px] sm:text-[10px] text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">Little Lamb Films</span>
+        </div>
+        <h4 class="text-xs sm:text-sm font-semibold text-white mb-1.5 sm:mb-2">More Heart Per SquareFoot</h4>
+        <div class="text-[11px] sm:text-xs text-slate-400 mb-2">
+          <strong class="text-slate-300 font-medium">Role:</strong> Lead Film Editor (Navnita Sen)
+        </div>
+        <p class="text-[10px] sm:text-[11px] text-slate-400 bg-slate-900/50 p-2 sm:p-2.5 rounded border border-slate-800/60 leading-relaxed">
+          Premium corporate brand and lifestyle film exploring architectural belonging, community spaces, and familial warmth.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-xl p-4 sm:p-5 hover:border-amber-500/40 transition-all">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold text-amber-400 font-mono-code">Broadcast Commercial Post</span>
+          <span class="text-[9px] sm:text-[10px] text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">TV18 • Prime Focus • Apocalypso</span>
+        </div>
+        <h4 class="text-xs sm:text-sm font-semibold text-white mb-1.5 sm:mb-2">National Commercials & Network Broadcast Promos</h4>
+        <div class="text-[11px] sm:text-xs text-slate-400 mb-2">
+          <strong class="text-slate-300 font-medium">Role:</strong> Lead Commercial Editor (Navnita Sen)
+        </div>
+        <p class="text-[10px] sm:text-[11px] text-slate-400 bg-slate-900/50 p-2 sm:p-2.5 rounded border border-slate-800/60 leading-relaxed">
+          Commercial television promos, corporate identity reels, and broadcast brand packages edited across premier Indian broadcast studios.
+        </p>
+      </div>
+
+      <!-- Abhik Chatterjee Campaigns -->
+      <div class="glass-card rounded-xl p-4 sm:p-5 hover:border-amber-500/40 transition-all">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold text-amber-400 font-mono-code">Hindustan Unilever (HUL)</span>
+          <span class="text-[9px] sm:text-[10px] text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">Ogilvy & Mather (O&M)</span>
+        </div>
+        <h4 class="text-xs sm:text-sm font-semibold text-white mb-1.5 sm:mb-2">Swachhta Ki Sawari At Kumbh – Ek Nishaad Ki Nazar Se</h4>
+        <div class="text-[11px] sm:text-xs text-slate-400 mb-2">
+          <strong class="text-slate-300 font-medium">Role:</strong> Folk Adaptation & On-Site Field Recording (Abhik Chatterjee)
+        </div>
+        <p class="text-[10px] sm:text-[11px] text-slate-400 bg-slate-900/50 p-2 sm:p-2.5 rounded border border-slate-800/60 leading-relaxed">
+          Captured authentic vocals of Prayagraj boatmen ('Bhagwaan Maang Rahe Naiyya') on-site at Kumbh Mela with Little Lamb Films.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-xl p-4 sm:p-5 hover:border-amber-500/40 transition-all">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold text-amber-400 font-mono-code">Brooke Bond Red Label (HUL)</span>
+          <span class="text-[9px] sm:text-[10px] text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">Ogilvy & Mather (O&M)</span>
+        </div>
+        <h4 class="text-xs sm:text-sm font-semibold text-white mb-1.5 sm:mb-2">Red Label 'Tea for Trash' (Kumbh Mela)</h4>
+        <div class="text-[11px] sm:text-xs text-slate-400 mb-2">
+          <strong class="text-slate-300 font-medium">Role:</strong> Music Composer & Sonic Branding (Abhik Chatterjee) • Dir. Sreemoyee Bhattacharya
+        </div>
+        <p class="text-[10px] sm:text-[11px] text-slate-400 bg-slate-900/50 p-2 sm:p-2.5 rounded border border-slate-800/60 leading-relaxed">
+          Environmental sustainability activation score combining indigenous Indian acoustic instruments with commercial clarity.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-xl p-4 sm:p-5 hover:border-amber-500/40 transition-all">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold text-amber-400 font-mono-code">Brooke Bond Red Label (HUL)</span>
+          <span class="text-[9px] sm:text-[10px] text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">Ogilvy & Mather (O&M)</span>
+        </div>
+        <h4 class="text-xs sm:text-sm font-semibold text-white mb-1.5 sm:mb-2">Red Label '2 Blends' (Swad Apnepan Ka)</h4>
+        <div class="text-[11px] sm:text-xs text-slate-400 mb-2">
+          <strong class="text-slate-300 font-medium">Role:</strong> Music Composer (Abhik Chatterjee) • Dir. Bauddhayan Mukherji
+        </div>
+        <p class="text-[10px] sm:text-[11px] text-slate-400 bg-slate-900/50 p-2 sm:p-2.5 rounded border border-slate-800/60 leading-relaxed">
+          Acclaimed viral social experiment film celebrating diversity, cross-cultural empathy, and warm acoustic resonance.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-xl p-4 sm:p-5 hover:border-amber-500/40 transition-all">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold text-amber-400 font-mono-code">Parle Products</span>
+          <span class="text-[9px] sm:text-[10px] text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">Ogilvy & Mather (O&M)</span>
+        </div>
+        <h4 class="text-xs sm:text-sm font-semibold text-white mb-1.5 sm:mb-2">Parle-G 'Roko Mat Toko Mat' (Mother & Son / Soldier)</h4>
+        <div class="text-[11px] sm:text-xs text-slate-400 mb-2">
+          <strong class="text-slate-300 font-medium">Role:</strong> Original Music Composition (Abhik Chatterjee) • Dir. Vibhu Puri
+        </div>
+        <p class="text-[10px] sm:text-[11px] text-slate-400 bg-slate-900/50 p-2 sm:p-2.5 rounded border border-slate-800/60 leading-relaxed">
+          National TVCs with Little Lamb Films; acoustic melodic warmth and emotional nostalgia celebrating childhood resilience.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-xl p-4 sm:p-5 hover:border-amber-500/40 transition-all">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold text-amber-400 font-mono-code">Amazon Prime Video</span>
+          <span class="text-[9px] sm:text-[10px] text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">Amazon Prime Video India</span>
+        </div>
+        <h4 class="text-xs sm:text-sm font-semibold text-white mb-1.5 sm:mb-2">Made in Heaven - Let's Create HASHTAGS</h4>
+        <div class="text-[11px] sm:text-xs text-slate-400 mb-2">
+          <strong class="text-slate-300 font-medium">Role:</strong> Music Composer & Sound Design (Abhik Chatterjee)
+        </div>
+        <p class="text-[10px] sm:text-[11px] text-slate-400 bg-slate-900/50 p-2 sm:p-2.5 rounded border border-slate-800/60 leading-relaxed">
+          High-engagement digital campaign featuring Kenny Sebastian & Prajakta Koli for the flagship Amazon Prime Video release.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-xl p-4 sm:p-5 hover:border-amber-500/40 transition-all">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold text-amber-400 font-mono-code">Bharti Airtel</span>
+          <span class="text-[9px] sm:text-[10px] text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">Airtel Brand Network</span>
+        </div>
+        <h4 class="text-xs sm:text-sm font-semibold text-white mb-1.5 sm:mb-2">Stream videos 26% faster on airtel</h4>
+        <div class="text-[11px] sm:text-xs text-slate-400 mb-2">
+          <strong class="text-slate-300 font-medium">Role:</strong> Music & Sound Design (Abhik Chatterjee)
+        </div>
+        <p class="text-[10px] sm:text-[11px] text-slate-400 bg-slate-900/50 p-2 sm:p-2.5 rounded border border-slate-800/60 leading-relaxed">
+          High-energy commercial scoring emphasizing telecommunication network speed and real-time streaming reliability.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-xl p-4 sm:p-5 hover:border-amber-500/40 transition-all">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold text-amber-400 font-mono-code">Onida Electronics</span>
+          <span class="text-[9px] sm:text-[10px] text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">Onida Brand Campaign</span>
+        </div>
+        <h4 class="text-xs sm:text-sm font-semibold text-white mb-1.5 sm:mb-2">Onida AC - Heat Mein Dheet</h4>
+        <div class="text-[11px] sm:text-xs text-slate-400 mb-2">
+          <strong class="text-slate-300 font-medium">Role:</strong> Music Composer & Sound Design (Abhik Chatterjee)
+        </div>
+        <p class="text-[10px] sm:text-[11px] text-slate-400 bg-slate-900/50 p-2 sm:p-2.5 rounded border border-slate-800/60 leading-relaxed">
+          Quirky, high-recall television and digital commercial spot with humorous sound design and catchy sonic pacing.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-xl p-4 sm:p-5 hover:border-amber-500/40 transition-all">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold text-amber-400 font-mono-code">Coolwinks Eyewear</span>
+          <span class="text-[9px] sm:text-[10px] text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">Coolwinks Media</span>
+        </div>
+        <h4 class="text-xs sm:text-sm font-semibold text-white mb-1.5 sm:mb-2">Complete Eyewear Suite (6 Commercial Films)</h4>
+        <div class="text-[11px] sm:text-xs text-slate-400 mb-2">
+          <strong class="text-slate-300 font-medium">Role:</strong> Music Composer & Sound Designer (Abhik Chatterjee)
+        </div>
+        <p class="text-[10px] sm:text-[11px] text-slate-400 bg-slate-900/50 p-2 sm:p-2.5 rounded border border-slate-800/60 leading-relaxed">
+          Complete sonic suite across 6 national product films: Polarized, Blue Light, Photochromic, UV, Power, and Thin Lenses.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-xl p-4 sm:p-5 hover:border-amber-500/40 transition-all">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold text-amber-400 font-mono-code">Max Fashion</span>
+          <span class="text-[9px] sm:text-[10px] text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">Landmark Group</span>
+        </div>
+        <h4 class="text-xs sm:text-sm font-semibold text-white mb-1.5 sm:mb-2">Life's Out There! (Max Autumn Collection)</h4>
+        <div class="text-[11px] sm:text-xs text-slate-400 mb-2">
+          <strong class="text-slate-300 font-medium">Role:</strong> Music Composer (Abhik Chatterjee)
+        </div>
+        <p class="text-[10px] sm:text-[11px] text-slate-400 bg-slate-900/50 p-2 sm:p-2.5 rounded border border-slate-800/60 leading-relaxed">
+          Youth fashion campaign fusing contemporary electronic rhythms with energetic autumn street aesthetics.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-xl p-4 sm:p-5 hover:border-amber-500/40 transition-all">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold text-amber-400 font-mono-code">Enerzal</span>
+          <span class="text-[9px] sm:text-[10px] text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">FDC Limited</span>
+        </div>
+        <h4 class="text-xs sm:text-sm font-semibold text-white mb-1.5 sm:mb-2">Josh Hain Toh Pyaas Hain</h4>
+        <div class="text-[11px] sm:text-xs text-slate-400 mb-2">
+          <strong class="text-slate-300 font-medium">Role:</strong> Music Composer & Sound Design (Abhik Chatterjee)
+        </div>
+        <p class="text-[10px] sm:text-[11px] text-slate-400 bg-slate-900/50 p-2 sm:p-2.5 rounded border border-slate-800/60 leading-relaxed">
+          High-energy sports hydration commercial with driving acoustic percussion and athletic momentum.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-xl p-4 sm:p-5 hover:border-amber-500/40 transition-all">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold text-amber-400 font-mono-code">The Times of India</span>
+          <span class="text-[9px] sm:text-[10px] text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">Bennett, Coleman & Co.</span>
+        </div>
+        <h4 class="text-xs sm:text-sm font-semibold text-white mb-1.5 sm:mb-2">Write India - A Times of India Initiative</h4>
+        <div class="text-[11px] sm:text-xs text-slate-400 mb-2">
+          <strong class="text-slate-300 font-medium">Role:</strong> Original Music Composition (Abhik Chatterjee)
+        </div>
+        <p class="text-[10px] sm:text-[11px] text-slate-400 bg-slate-900/50 p-2 sm:p-2.5 rounded border border-slate-800/60 leading-relaxed">
+          National literary and creative writing initiative theme celebrating authorial voices across India.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-xl p-4 sm:p-5 hover:border-amber-500/40 transition-all">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold text-amber-400 font-mono-code">Balaji Motion Pictures</span>
+          <span class="text-[9px] sm:text-[10px] text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">Balaji Telefilms</span>
+        </div>
+        <h4 class="text-xs sm:text-sm font-semibold text-white mb-1.5 sm:mb-2">Box Cricket League Official Broadcast Anthem</h4>
+        <div class="text-[11px] sm:text-xs text-slate-400 mb-2">
+          <strong class="text-slate-300 font-medium">Role:</strong> Anthem Composer & Sonic Ident (Abhik Chatterjee)
+        </div>
+        <p class="text-[10px] sm:text-[11px] text-slate-400 bg-slate-900/50 p-2 sm:p-2.5 rounded border border-slate-800/60 leading-relaxed">
+          Celebrity sports broadcast theme featuring high-energy percussion and stadium choruses.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-xl p-4 sm:p-5 hover:border-amber-500/40 transition-all">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold text-amber-400 font-mono-code">Breakthrough India</span>
+          <span class="text-[9px] sm:text-[10px] text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">Breakthrough Trust</span>
+        </div>
+        <h4 class="text-xs sm:text-sm font-semibold text-white mb-1.5 sm:mb-2">No To Violence, Yes To Love</h4>
+        <div class="text-[11px] sm:text-xs text-slate-400 mb-2">
+          <strong class="text-slate-300 font-medium">Role:</strong> Music Composer (Abhik Chatterjee)
+        </div>
+        <p class="text-[10px] sm:text-[11px] text-slate-400 bg-slate-900/50 p-2 sm:p-2.5 rounded border border-slate-800/60 leading-relaxed">
+          Acclaimed human rights, gender equality, and social awareness digital campaign.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-xl p-4 sm:p-5 hover:border-amber-500/40 transition-all">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold text-amber-400 font-mono-code">abhikismBLACK</span>
+          <span class="text-[9px] sm:text-[10px] text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">Luxury AI Commercials</span>
+        </div>
+        <h4 class="text-xs sm:text-sm font-semibold text-white mb-1.5 sm:mb-2">REBIRTH & KISS (Luxury Beauty & Fashion)</h4>
+        <div class="text-[11px] sm:text-xs text-slate-400 mb-2">
+          <strong class="text-slate-300 font-medium">Role:</strong> Director & AI Media Gen (Abhik Chatterjee & Debo Sanyal)
+        </div>
+        <p class="text-[10px] sm:text-[11px] text-slate-400 bg-slate-900/50 p-2 sm:p-2.5 rounded border border-slate-800/60 leading-relaxed">
+          Photorealistic luxury cosmetics and haute couture vertical commercials with sub-millimeter anatomical fidelity.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-xl p-4 sm:p-5 hover:border-amber-500/40 transition-all">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold text-amber-400 font-mono-code">Sohum Shah Films</span>
+          <span class="text-[9px] sm:text-[10px] text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">Sohum Shah Films / Recyclewala</span>
+        </div>
+        <h4 class="text-xs sm:text-sm font-semibold text-white mb-1.5 sm:mb-2">251 (Short 2023) & Cabbage (Short 2024)</h4>
+        <div class="text-[11px] sm:text-xs text-slate-400 mb-2">
+          <strong class="text-slate-300 font-medium">Role:</strong> Original Film Score (Abhik Chatterjee)
+        </div>
+        <p class="text-[10px] sm:text-[11px] text-slate-400 bg-slate-900/50 p-2 sm:p-2.5 rounded border border-slate-800/60 leading-relaxed">
+          Collaborated with cinematographer Ranjan Palit, editor Sanyukta Kaza, and sound designer Pritam Das.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-xl p-4 sm:p-5 hover:border-amber-500/40 transition-all">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold text-amber-400 font-mono-code">ASHWAA Luxury Lifestyle</span>
+          <span class="text-[9px] sm:text-[10px] text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">Finchbill Motion Pictures</span>
+        </div>
+        <h4 class="text-xs sm:text-sm font-semibold text-white mb-1.5 sm:mb-2">ASHWAA — Legacy In Motion (Director's Cut 2K)</h4>
+        <div class="text-[11px] sm:text-xs text-slate-400 mb-2">
+          <strong class="text-slate-300 font-medium">Role:</strong> Director (Nilaanjan Reeta Datta)
+        </div>
+        <p class="text-[10px] sm:text-[11px] text-slate-400 bg-slate-900/50 p-2 sm:p-2.5 rounded border border-slate-800/60 leading-relaxed">
+          High-end luxury equestrian brand film exploring kinetic power, precision breeding, and artisanal heritage.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 4: The Strategic Moat & Creative Dialectic -->
+  <section id="moat" class="py-14 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto border-b border-slate-800/60">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12">
+      <div>
+        <div class="text-[10px] sm:text-xs font-mono-code text-amber-400 uppercase tracking-wider mb-1.5">04 • COMPETITIVE ADVANTAGE</div>
+        <h2 class="text-2xl sm:text-4xl font-bold text-white tracking-tight">The 5 Strategic Moats</h2>
+      </div>
+      <p class="text-xs text-slate-400 max-w-md mt-2 md:mt-0">
+        Why prompt engineers and legacy agencies cannot compete with our hybrid architecture.
+      </p>
+    </div>
+
+    <!-- 5 Pillars Grid (Mobile 1-col, Tablet 2-col, Desktop 5-col) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4 mb-10 sm:mb-16">
+      <div class="glass-card rounded-2xl p-4 sm:p-6">
+        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-xs sm:text-sm mb-3 sm:mb-4">01</div>
+        <h3 class="text-sm sm:text-base font-bold text-white mb-1.5 sm:mb-2">Verified Cinema Taste Over "Prompt Roulette"</h3>
+        <p class="text-[11px] sm:text-xs text-slate-300 leading-relaxed">
+          20+ years of classical filmmaking discipline. Calibrated focal lengths (24mm, 50mm, 85mm), motivated camera kinematics (1-2mm/s push-ins), and strict 180° spatial geography.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-2xl p-4 sm:p-6">
+        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-xs sm:text-sm mb-3 sm:mb-4">02</div>
+        <h3 class="text-sm sm:text-base font-bold text-white mb-1.5 sm:mb-2">Compliance, Ethics & Institutional Trust</h3>
+        <p class="text-[11px] sm:text-xs text-slate-300 leading-relaxed">
+          Zero copyright ambiguity. 100% clean-room IP indemnity backed by FTII academic leaders and venture-backed founders. No illicitly scraped models.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-2xl p-4 sm:p-6">
+        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-xs sm:text-sm mb-3 sm:mb-4">03</div>
+        <h3 class="text-sm sm:text-base font-bold text-white mb-1.5 sm:mb-2">Extreme Velocity & Up to 99% Cost Reduction</h3>
+        <p class="text-[11px] sm:text-xs text-slate-300 leading-relaxed">
+          8 to 12 weeks of legacy agency physical production compressed down to 5 to 7 business days. Elimination of multi-crore sets, travel crews, and agency markups.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-2xl p-4 sm:p-6">
+        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-xs sm:text-sm mb-3 sm:mb-4">04</div>
+        <h3 class="text-sm sm:text-base font-bold text-white mb-1.5 sm:mb-2">Master Craftsmanship & Directorial Authority</h3>
+        <p class="text-[11px] sm:text-xs text-slate-300 leading-relaxed">
+          Audio-vision synchresis, J/L cuts, unbroken room tone, EBU R128 (-14 LUFS) broadcast loudness mastering, and timbre-preserving cross-lingual song dubbing.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-2xl p-4 sm:p-6">
+        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-xs sm:text-sm mb-3 sm:mb-4">05</div>
+        <h3 class="text-sm sm:text-base font-bold text-white mb-1.5 sm:mb-2">Global Market Reach & Transnational Access</h3>
+        <p class="text-[11px] sm:text-xs text-slate-300 leading-relaxed">
+          Direct theatrical co-production & distribution across the Middle East (GCC/UAE) and Tier-1 festivals (Cannes, TIFF) via Vivek, coupled with US (Silicon Valley) & European venture networks (EF London) via Mansoor.
+        </p>
+      </div>
+    </div>
+
+    <!-- The Creative Dialectic Typographic Architecture (Zero Images) -->
+    <div class="glass-card rounded-2xl p-5 sm:p-8 overflow-hidden relative border border-slate-800">
+      <div class="text-[10px] sm:text-xs font-mono-code text-amber-400 uppercase tracking-wider mb-2 sm:mb-3 block">04.B • THE CREATIVE DIALECTIC</div>
+      <h3 class="text-xl sm:text-3xl font-bold text-white mb-2 sm:mb-3">Arthouse Realism vs Generative Scale</h3>
+      <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6 sm:mb-8 max-w-3xl">
+        Generative technology without human emotional restraint produces plastic vaporware. Classical arthouse cinema without AI scale is economically paralyzed. Our synthesis resolves both through immutable human directorial judgment.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6">
+        <!-- Panel 1: Arthouse Realism -->
+        <div class="p-5 sm:p-6 rounded-xl bg-slate-900/90 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-mono-code text-amber-400 uppercase tracking-wider mb-1">FOUNDATION 01</div>
+            <h4 class="text-lg sm:text-xl font-bold text-white mb-3">Arthouse Cinematic Realism</h4>
+            <ul class="space-y-2.5 text-xs text-slate-300">
+              <li class="flex items-start gap-2">
+                <span class="text-amber-400 mt-0.5 font-bold">•</span>
+                <span><strong>35mm Film Grain & Natural Light:</strong> Tactile organic textures, sub-pixel grain response, and truthful color science.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-amber-400 mt-0.5 font-bold">•</span>
+                <span><strong>Unforced Psychological Subtext:</strong> Micro-expressions, spatial pauses, and dramatic staging derived from <em>The Lunchbox</em> and <em>Ghaath</em>.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-amber-400 mt-0.5 font-bold">•</span>
+                <span><strong>Master Craftsmanship:</strong> Classical film editing discipline, J/L split cuts, and unbroken room tone.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800/80 text-[10px] font-mono-code text-slate-400">
+            Pedigree: National Awards & FTII Pune
+          </div>
+        </div>
+
+        <!-- Panel 2: Generative Scale -->
+        <div class="p-5 sm:p-6 rounded-xl bg-slate-900/90 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-mono-code text-amber-400 uppercase tracking-wider mb-1">FOUNDATION 02</div>
+            <h4 class="text-lg sm:text-xl font-bold text-white mb-3">Generative Scale & Speed</h4>
+            <ul class="space-y-2.5 text-xs text-slate-300">
+              <li class="flex items-start gap-2">
+                <span class="text-amber-400 mt-0.5 font-bold">•</span>
+                <span><strong>Unbounded Worldbuilding Architecture:</strong> Zero-cost physical sets, infinite digital production canvases, and multi-world environments.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-amber-400 mt-0.5 font-bold">•</span>
+                <span><strong>Rapid Multi-World Synthesis:</strong> Multi-style stylistic adaptation (photoreal cinema, sci-fi, anime) without physical shoot friction.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-amber-400 mt-0.5 font-bold">•</span>
+                <span><strong>Instant Turnaround Velocity:</strong> 5 to 7 days from concept to master deliverable, reducing costs by up to 99%.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800/80 text-[10px] font-mono-code text-slate-400">
+            Engine: Proprietary Creative Tech & fal.ai
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Synthesis Anchor Bar -->
+      <div class="p-3.5 sm:p-4 rounded-xl bg-gradient-to-r from-amber-500/20 via-amber-500/10 to-transparent border border-amber-500/30 flex items-center justify-between">
+        <span class="text-xs sm:text-sm font-bold text-white flex items-center gap-2">
+          <span class="text-amber-400">✦</span>
+          Directorial Taste as the Immutable Filter
+        </span>
+        <span class="text-[10px] font-mono-code text-amber-400 uppercase hidden sm:inline-block">HYBRID ADVANTAGE</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: The 24-Entity Brand & Client Logos Vault (Mobile-First Interactive) -->
+  <section id="logos-vault" class="py-14 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto border-b border-slate-800/60">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-8">
+      <div>
+        <div class="text-[10px] sm:text-xs font-mono-code text-amber-400 uppercase tracking-wider mb-1.5">05 • MASTER TRADEMARK ASSET VAULT</div>
+        <h2 class="text-2xl sm:text-4xl font-bold text-white tracking-tight">24-Entity Standardized Brand Logos</h2>
+      </div>
+      
+      <!-- Mobile-Friendly Master Switcher -->
+      <div class="mt-4 md:mt-0 flex items-center justify-between sm:justify-start gap-2 sm:gap-3 bg-slate-900/80 p-1 rounded-xl border border-slate-800 w-full sm:w-auto">
+        <button onclick="setLogoStyle('white')" id="btn-style-white" class="touch-target flex-1 sm:flex-none px-3 py-2 rounded-lg text-xs font-medium bg-amber-500 text-slate-950 font-bold transition-all flex items-center justify-center gap-1.5 active:scale-95">
+          <span class="w-2 h-2 rounded-full bg-slate-950"></span>
+          <span>Video White (#FFF)</span>
+        </button>
+        <button onclick="setLogoStyle('color')" id="btn-style-color" class="touch-target flex-1 sm:flex-none px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition-all flex items-center justify-center gap-1.5 active:scale-95">
+          <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+          <span>Brand Color</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Category Filters & Search (Mobile Touch Friendly) -->
+    <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mb-6 sm:mb-8">
+      <!-- Horizontal Scrollable Pill Strip -->
+      <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar touch-pan-x pb-1 scroll-mask">
+        <button onclick="filterLogos('All')" class="logo-cat-btn touch-target px-3.5 py-2 rounded-xl text-xs font-medium whitespace-nowrap bg-amber-500 text-slate-950 font-bold active:scale-95 transition-all" data-cat="All">All (24)</button>
+        <button onclick="filterLogos('Consumer Brands')" class="logo-cat-btn touch-target px-3.5 py-2 rounded-xl text-xs font-medium whitespace-nowrap bg-slate-900 text-slate-300 hover:bg-slate-800 active:scale-95 transition-all" data-cat="Consumer Brands">Brands (6)</button>
+        <button onclick="filterLogos('Studios & Networks')" class="logo-cat-btn touch-target px-3.5 py-2 rounded-xl text-xs font-medium whitespace-nowrap bg-slate-900 text-slate-300 hover:bg-slate-800 active:scale-95 transition-all" data-cat="Studios & Networks">Studios (9)</button>
+        <button onclick="filterLogos('Academies & Festivals')" class="logo-cat-btn touch-target px-3.5 py-2 rounded-xl text-xs font-medium whitespace-nowrap bg-slate-900 text-slate-300 hover:bg-slate-800 active:scale-95 transition-all" data-cat="Academies & Festivals">Festivals (7)</button>
+        <button onclick="filterLogos('Tech & Platforms')" class="logo-cat-btn touch-target px-3.5 py-2 rounded-xl text-xs font-medium whitespace-nowrap bg-slate-900 text-slate-300 hover:bg-slate-800 active:scale-95 transition-all" data-cat="Tech & Platforms">Tech (2)</button>
+      </div>
+
+      <div class="w-full sm:w-64">
+        <input type="text" id="logo-search" placeholder="Search brand or founder..." oninput="searchLogos(this.value)" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-500">
+      </div>
+    </div>
+
+    <!-- Master Grid Montages Banner (Touch Responsive) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
+      <div class="p-3.5 sm:p-4 rounded-xl glass-card text-left">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold text-white flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-white"></span>
+            Broadcast White Video Master Grid
+          </span>
+          <span class="text-[9px] sm:text-[10px] font-mono-code text-amber-400">1200×600 Overlays</span>
+        </div>
+        <div class="aspect-[2/1] rounded-lg overflow-hidden bg-slate-950 border border-slate-800">
+          <img src="assets/graphics/UV_GRAPHIC_LogosWhiteDarkMontage_v1.0_20260914_FINAL.jpg" alt="Master White Logos Grid" class="w-full h-full object-cover">
+        </div>
+      </div>
+
+      <div class="p-3.5 sm:p-4 rounded-xl glass-card text-left">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold text-white flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+            Full Color Trademark Master Grid
+          </span>
+          <span class="text-[9px] sm:text-[10px] font-mono-code text-amber-400">1200×600 Decks</span>
+        </div>
+        <div class="aspect-[2/1] rounded-lg overflow-hidden bg-slate-100 border border-slate-300">
+          <img src="assets/graphics/UV_GRAPHIC_LogosColorLightMontage_v1.0_20260914_FINAL.jpg" alt="Master Color Logos Grid" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive 24-Logo Card Grid (Mobile 2-col, Desktop 4-col) -->
+    <div id="logos-container" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-4">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- 5-Gate Forensic Audit Certification Box -->
+    <div class="mt-6 sm:mt-8 p-4 sm:p-6 rounded-xl bg-slate-900/90 border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-lg sm:text-xl font-bold shrink-0">
+          ✓
+        </div>
+        <div>
+          <h4 class="text-xs sm:text-sm font-bold text-white">5-Gate Forensic Audit: 48/48 Certified</h4>
+          <p class="text-[10px] sm:text-xs text-slate-400">
+            100% 32-bit RGBA, 1200×600 canvas, zero-alpha corners, optical centering, and pure white.
+          </p>
+        </div>
+      </div>
+      <div class="text-left sm:text-right font-mono-code text-[10px] sm:text-xs text-slate-400">
+        <div>Report: <span class="text-amber-400">UV_DOC_LogoForensicAudit_v1.0</span></div>
+        <div class="text-emerald-400">✓ 100% Compliant</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Proprietary Creative Tech & Software Suite -->
+  <section id="tech" class="py-14 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto border-b border-slate-800/60">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12">
+      <div>
+        <div class="text-[10px] sm:text-xs font-mono-code text-amber-400 uppercase tracking-wider mb-1.5">06 • CLIENT-SIDE SOFTWARE & AUDIO AI</div>
+        <h2 class="text-2xl sm:text-4xl font-bold text-white tracking-tight">Proprietary Creative Tech & Audio AI</h2>
+      </div>
+      <p class="text-xs text-slate-400 max-w-md mt-2 md:mt-0">
+        In-house software engines and AI foundation models developed by our creative technologists to eliminate production bottlenecks across music scoring, foley synthesis, subtitle extraction, and narrative storyboarding.
+      </p>
+    </div>
+
+    <!-- Software Tools Grid (Mobile 1-col, Desktop 2/3-col) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 mb-6 sm:mb-8">
+      
+      <!-- Tool 1: Beatoven Maestro Music Model -->
+      <div class="glass-card rounded-2xl p-4 sm:p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-2 sm:mb-3">
+            <span class="text-[10px] sm:text-xs font-mono-code text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/30">Foundation Music AI</span>
+            <span class="text-[10px] font-mono-code text-slate-400">beatoven.ai</span>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-white mb-1 sm:mb-2">Beatoven Maestro Music Model</h3>
+          <p class="text-xs text-slate-300 leading-relaxed mb-3 sm:mb-4">
+            Flagship ethically trained foundation music model trained on 3,000,000+ certified stems with full revenue sharing to session musicians. Generates tempo-locked orchestral, ambient, and dramatic scores mapped frame-accurately to video cuts.
+          </p>
+        </div>
+        <div class="text-[10px] sm:text-[11px] font-mono-code text-slate-400 bg-slate-900/80 p-2.5 sm:p-3 rounded-lg border border-slate-800">
+          ✦ 100% clean-room legal indemnity against DSP strikes and YouTube copyright claims.
+        </div>
+      </div>
+
+      <!-- Tool 2: Beatoven Maestro SFX Model -->
+      <div class="glass-card rounded-2xl p-4 sm:p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-2 sm:mb-3">
+            <span class="text-[10px] sm:text-xs font-mono-code text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded border border-sky-500/30">Generative Sound & Foley</span>
+            <span class="text-[10px] font-mono-code text-slate-400">fal.ai inference</span>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-white mb-1 sm:mb-2">Beatoven Maestro SFX Model</h3>
+          <p class="text-xs text-slate-300 leading-relaxed mb-3 sm:mb-4">
+            High-fidelity generative sound effects and foley model co-architected by Beatoven.ai and deployed on fal.ai. Synthesizes synchronized environmental soundscapes, organic foleys, impacts, and riser cues aligned with scene action.
+          </p>
+        </div>
+        <div class="text-[10px] sm:text-[11px] font-mono-code text-slate-400 bg-slate-900/80 p-2.5 sm:p-3 rounded-lg border border-slate-800">
+          ✦ Sub-second cloud inference for rapid sound design and audio-visual synchronization.
+        </div>
+      </div>
+
+      <!-- Tool 3: Rusk AI Video SRT Extractor -->
+      <div class="glass-card rounded-2xl p-4 sm:p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-2 sm:mb-3">
+            <span class="text-[10px] sm:text-xs font-mono-code text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30">Video Speech-to-Text</span>
+            <span class="text-[10px] font-mono-code text-slate-400">Rusk Media Studio</span>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-white mb-1 sm:mb-2">Rusk AI Video SRT Extractor</h3>
+          <p class="text-xs text-slate-300 leading-relaxed mb-3 sm:mb-4">
+            Proprietary video subtitle engine engineered for Rusk Media that automatically extracts frame-accurate, timecoded .srt subtitle files directly from any uploaded video container with automated speech recognition and speaker diarization.
+          </p>
+        </div>
+        <div class="text-[10px] sm:text-[11px] font-mono-code text-slate-400 bg-slate-900/80 p-2.5 sm:p-3 rounded-lg border border-slate-800">
+          ✦ Eliminates hours of manual subtitle transcription for high-cadence episodic micro-dramas.
+        </div>
+      </div>
+
+      <!-- Tool 4: Multilingual SRT Translator Tools -->
+      <div class="glass-card rounded-2xl p-4 sm:p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-2 sm:mb-3">
+            <span class="text-[10px] sm:text-xs font-mono-code text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/30">Subtitle Localization</span>
+            <span class="text-[10px] font-mono-code text-slate-400">Multi-Language Engine</span>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-white mb-1 sm:mb-2">Multilingual SRT Translator Tools</h3>
+          <p class="text-xs text-slate-300 leading-relaxed mb-3 sm:mb-4">
+            High-speed cross-lingual subtitle localization suite translating .srt tracks across Indian regional languages (Hindi, Tamil, Telugu, Bengali, Marathi) and international markets while strictly preserving timecode boundaries and character reading pace.
+          </p>
+        </div>
+        <div class="text-[10px] sm:text-[11px] font-mono-code text-slate-400 bg-slate-900/80 p-2.5 sm:p-3 rounded-lg border border-slate-800">
+          ✦ Enables instantaneous multi-regional distribution across OTT and vertical streaming platforms.
+        </div>
+      </div>
+
+      <!-- Tool 5: MindFlow -->
+      <div class="glass-card rounded-2xl p-4 sm:p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-2 sm:mb-3">
+            <span class="text-[10px] sm:text-xs font-mono-code text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded border border-purple-500/30">Narrative Storyboard</span>
+            <span class="text-[10px] font-mono-code text-slate-400">abhikism.com/mindflow</span>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-white mb-1 sm:mb-2">MindFlow</h3>
+          <p class="text-xs text-slate-300 leading-relaxed mb-3 sm:mb-4">
+            Local-first infinite canvas for narrative universe branching, character lore bibles, and episodic story structure mapping with portable serialized <code>.board</code> files. Operates 100% locally in-browser with zero cloud data leaks.
+          </p>
+        </div>
+        <div class="text-[10px] sm:text-[11px] font-mono-code text-slate-400 bg-slate-900/80 p-2.5 sm:p-3 rounded-lg border border-slate-800">
+          ✦ Maintains multi-episode lore and character state memory for episodic micro-dramas.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Audio AI Foundation Card -->
+    <div class="glass-card rounded-2xl p-5 sm:p-8">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8">
+        <div class="lg:w-2/3 w-full">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-[10px] sm:text-xs font-mono-code text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded border border-sky-500/30">AUDIO AI INFRASTRUCTURE</span>
+            <span class="text-[10px] text-slate-400">Beatoven.ai & fal.ai</span>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">The "Maestro" Generative Audio Engine</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3 sm:mb-4">
+            Co-architected by Beatoven.ai and deployed for inference on fal.ai, <strong>"maestro"</strong> generates cinematic sound effects and musical stems mapped frame-accurately to video cuts.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 text-[11px] sm:text-xs text-slate-300">
+            <div class="flex items-start gap-2">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span><strong>3M+ Stems:</strong> 100% ethically licensed from certified session artists.</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span><strong>Cross-Lingual Dubbing:</strong> Timbre-preserving vocal translation (e.g. <em>Hey Nidhi</em>).</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span><strong>EBU R128 Loudness:</strong> Pre-mastered to -14 LUFS for instant broadcast compliance.</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span><strong>Clean-Room Legal Rights:</strong> Zero exposure to platform takedowns or copyright strikes.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:w-1/3 w-full">
+          <div class="aspect-[4/3] rounded-xl overflow-hidden bg-slate-950 border border-slate-800 shadow-2xl relative p-4 flex flex-col justify-between">
+            <div class="flex items-center justify-between text-[10px] font-mono-code text-slate-400">
+              <span class="text-sky-400 font-semibold tracking-wider">NEURAL AUDIO SYNTHESIS</span>
+              <span class="text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">-14 LUFS</span>
+            </div>
+            <svg class="w-full h-24 my-auto opacity-85" viewBox="0 0 300 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="waveGrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#0284c7" />
+                  <stop offset="50%" stop-color="#38bdf8" />
+                  <stop offset="100%" stop-color="#f59e0b" />
+                </linearGradient>
+              </defs>
+              <path d="M0 40 Q 25 10, 50 40 T 100 40 T 150 20 T 200 60 T 250 30 T 300 40" stroke="url(#waveGrad)" stroke-width="2.5" stroke-linecap="round" fill="none" />
+              <path d="M0 40 Q 30 65, 60 40 T 120 40 T 180 15 T 240 55 T 300 40" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.5" fill="none" />
+              <rect x="20" y="32" width="3" height="16" rx="1.5" fill="#38bdf8" opacity="0.7"/>
+              <rect x="35" y="24" width="3" height="32" rx="1.5" fill="#38bdf8" opacity="0.9"/>
+              <rect x="50" y="16" width="3" height="48" rx="1.5" fill="#38bdf8"/>
+              <rect x="65" y="28" width="3" height="24" rx="1.5" fill="#38bdf8" opacity="0.8"/>
+              <rect x="80" y="20" width="3" height="40" rx="1.5" fill="#0284c7"/>
+              <rect x="95" y="10" width="3" height="60" rx="1.5" fill="#38bdf8"/>
+              <rect x="110" y="26" width="3" height="28" rx="1.5" fill="#38bdf8" opacity="0.85"/>
+              <rect x="125" y="18" width="3" height="44" rx="1.5" fill="#f59e0b"/>
+              <rect x="140" y="8" width="3" height="64" rx="1.5" fill="#f59e0b"/>
+              <rect x="155" y="22" width="3" height="36" rx="1.5" fill="#f59e0b" opacity="0.9"/>
+              <rect x="170" y="30" width="3" height="20" rx="1.5" fill="#38bdf8" opacity="0.7"/>
+              <rect x="185" y="14" width="3" height="52" rx="1.5" fill="#38bdf8"/>
+              <rect x="200" y="25" width="3" height="30" rx="1.5" fill="#38bdf8" opacity="0.8"/>
+              <rect x="215" y="12" width="3" height="56" rx="1.5" fill="#f59e0b"/>
+              <rect x="230" y="28" width="3" height="24" rx="1.5" fill="#0284c7" opacity="0.85"/>
+              <rect x="245" y="20" width="3" height="40" rx="1.5" fill="#38bdf8"/>
+              <rect x="260" y="32" width="3" height="16" rx="1.5" fill="#38bdf8" opacity="0.7"/>
+              <rect x="275" y="36" width="3" height="8" rx="1.5" fill="#38bdf8" opacity="0.5"/>
+            </svg>
+            <div class="flex items-center justify-between text-[9px] font-mono-code text-slate-500 pt-2 border-t border-slate-900">
+              <span>LATENCY: 120ms</span>
+              <span>BROADCAST STEREO 48kHz</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Executive Pitch Deck Wireframe Explorer (Touch Friendly) -->
+  <section id="wireframes" class="py-14 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto mb-safe-bottom">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12">
+      <div>
+        <div class="text-[10px] sm:text-xs font-mono-code text-amber-400 uppercase tracking-wider mb-1.5">07 • PRESENTATION WIREFRAMES</div>
+        <h2 class="text-2xl sm:text-4xl font-bold text-white tracking-tight">Approved Pitch Deck Explorer</h2>
+      </div>
+      <p class="text-xs text-slate-400 max-w-md mt-2 md:mt-0">
+        Interactive walkthrough of the 5 approved wireframe slides reflecting all corrections (real stylized portraits, distinct laurels, granular metrics, Makoto Shinkai anime fantasy, and up to 99% cost reduction).
+      </p>
+    </div>
+
+    <!-- Slide Stepper (Touch Friendly Strip + Prev/Next Controls) -->
+    <div class="flex items-center justify-between gap-2 mb-6 sm:mb-8 border-b border-slate-800 pb-3">
+      <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar touch-pan-x">
+
+        <button onclick="switchSlide(1)" id="slide-btn-1" class="touch-target px-3.5 sm:px-4 py-2 rounded-xl text-xs font-medium whitespace-nowrap transition-all flex items-center gap-1.5 active:scale-95 bg-amber-500 text-slate-950 font-bold">
+          <span>Slide 01</span>
+        </button>
+        
+        <button onclick="switchSlide(2)" id="slide-btn-2" class="touch-target px-3.5 sm:px-4 py-2 rounded-xl text-xs font-medium whitespace-nowrap transition-all flex items-center gap-1.5 active:scale-95 bg-slate-900/90 text-slate-300 hover:bg-slate-800">
+          <span>Slide 02</span>
+        </button>
+        
+        <button onclick="switchSlide(3)" id="slide-btn-3" class="touch-target px-3.5 sm:px-4 py-2 rounded-xl text-xs font-medium whitespace-nowrap transition-all flex items-center gap-1.5 active:scale-95 bg-slate-900/90 text-slate-300 hover:bg-slate-800">
+          <span>Slide 03</span>
+        </button>
+        
+        <button onclick="switchSlide(4)" id="slide-btn-4" class="touch-target px-3.5 sm:px-4 py-2 rounded-xl text-xs font-medium whitespace-nowrap transition-all flex items-center gap-1.5 active:scale-95 bg-slate-900/90 text-slate-300 hover:bg-slate-800">
+          <span>Slide 04</span>
+        </button>
+        
+        <button onclick="switchSlide(5)" id="slide-btn-5" class="touch-target px-3.5 sm:px-4 py-2 rounded-xl text-xs font-medium whitespace-nowrap transition-all flex items-center gap-1.5 active:scale-95 bg-slate-900/90 text-slate-300 hover:bg-slate-800">
+          <span>Slide 05</span>
+        </button>
+        
+      </div>
+      
+      <!-- Mobile Quick Prev/Next -->
+      <div class="flex items-center gap-1 shrink-0">
+        <button onclick="prevSlide()" class="touch-target p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white active:scale-95 transition-transform" aria-label="Previous slide">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+        <button onclick="nextSlide()" class="touch-target p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white active:scale-95 transition-transform" aria-label="Next slide">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Slide Display Container -->
+
+    <div id="slide-panel-1" class="slide-panel  transition-all duration-300">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
+        
+        <!-- Wireframe Preview (8 cols) -->
+        <div class="lg:col-span-8 w-full">
+          <div class="aspect-[16/9] rounded-xl sm:rounded-2xl overflow-hidden bg-slate-950 border border-slate-700 shadow-2xl relative group">
+            <img src="assets/wireframes/UV_WIREFRAME_Slide01_TitleManifesto_v1.0_20260913_REVIEW.jpg" alt="Slide 1: Cover & Studio Manifesto" class="w-full h-full object-cover">
+            <div class="absolute bottom-2.5 left-2.5 bg-slate-950/90 px-2.5 py-1 rounded text-[10px] sm:text-xs font-mono-code text-amber-400 border border-amber-500/30">
+              Slide 01 • 16:9 Master
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide Brief & Talking Points (4 cols) -->
+        <div class="lg:col-span-4 glass-card rounded-2xl p-4 sm:p-6 space-y-3 sm:space-y-4">
+          <div class="text-[9px] sm:text-[10px] font-mono-code text-amber-400 uppercase tracking-wider">SLIDE 01 SPECIFICATION</div>
+          <h3 class="text-lg sm:text-xl font-bold text-white leading-tight">Slide 1: Cover & Studio Manifesto</h3>
+          <p class="text-xs text-amber-400/90 font-medium leading-snug">UNTITLED VENTURE — The AI Studio for the Cinema Era</p>
+          
+          <div class="border-t border-slate-800 pt-3 space-y-2">
+            <div class="text-[10px] sm:text-xs font-mono-code text-slate-400 uppercase">Executive Talking Points:</div>
+        
+            <div class="flex items-start gap-1.5 text-xs text-slate-300 leading-relaxed">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span>Executive thesis: Where 20+ years of classical filmmaking discipline meets ethical generative technology.</span>
+            </div>
+            
+            <div class="flex items-start gap-1.5 text-xs text-slate-300 leading-relaxed">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span>Audience framing: Designed for Tier-1 CMOs, enterprise brands, and studio executives seeking cinematic scale without prompt roulette.</span>
+            </div>
+            
+            <div class="flex items-start gap-1.5 text-xs text-slate-300 leading-relaxed">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span>Key visual: Monolithic Swiss typography, matte gold accents, and deep obsidian negative space.</span>
+            </div>
+            
+          </div>
+
+          <div class="pt-3 border-t border-slate-800 text-[10px] font-mono-code text-slate-500 truncate">
+            Source: <span class="text-slate-400">UV_WIREFRAME_Slide01_TitleManifesto_v1.0_20260913_REVIEW.jpg</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+        
+    <div id="slide-panel-2" class="slide-panel hidden transition-all duration-300">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
+        
+        <!-- Wireframe Preview (8 cols) -->
+        <div class="lg:col-span-8 w-full">
+          <div class="aspect-[16/9] rounded-xl sm:rounded-2xl overflow-hidden bg-slate-950 border border-slate-700 shadow-2xl relative group">
+            <img src="assets/wireframes/UV_WIREFRAME_Slide02_FoundingCouncil_v3.0_20260914_REVIEW.jpg" alt="Slide 2: The Founding Council (Names Only)" class="w-full h-full object-cover">
+            <div class="absolute bottom-2.5 left-2.5 bg-slate-950/90 px-2.5 py-1 rounded text-[10px] sm:text-xs font-mono-code text-amber-400 border border-amber-500/30">
+              Slide 02 • 16:9 Master
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide Brief & Talking Points (4 cols) -->
+        <div class="lg:col-span-4 glass-card rounded-2xl p-4 sm:p-6 space-y-3 sm:space-y-4">
+          <div class="text-[9px] sm:text-[10px] font-mono-code text-amber-400 uppercase tracking-wider">SLIDE 02 SPECIFICATION</div>
+          <h3 class="text-lg sm:text-xl font-bold text-white leading-tight">Slide 2: The Founding Council</h3>
+          <p class="text-xs text-amber-400/90 font-medium leading-snug">5 Founding Partners • Swiss Brutalist Minimalist Typography • Names Only</p>
+          
+          <div class="border-t border-slate-800 pt-3 space-y-2">
+            <div class="text-[10px] sm:text-xs font-mono-code text-slate-400 uppercase">Executive Talking Points:</div>
+        
+            <div class="flex items-start gap-1.5 text-xs text-slate-300 leading-relaxed">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span><strong>Pure Swiss Brutalism:</strong> 5 monumental vertical columns on obsidian dark space displaying solely the 5 partner names.</span>
+            </div>
+            
+            <div class="flex items-start gap-1.5 text-xs text-slate-300 leading-relaxed">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span><strong>Zero Visual Clutter:</strong> Photographs, titles, descriptions, and icons eliminated to prioritize typographical authority and elegance.</span>
+            </div>
+            
+            <div class="flex items-start gap-1.5 text-xs text-slate-300 leading-relaxed">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span><strong>Founding Lineup:</strong> Nilaanjan Reeta Datta, Navnita Sen, Vivek Rangachari, Mansoor Rahimat Khan, Abhik Chatterjee.</span>
+            </div>
+            
+          </div>
+
+          <div class="pt-3 border-t border-slate-800 text-[10px] font-mono-code text-slate-500 truncate">
+            Source: <span class="text-slate-400">UV_WIREFRAME_Slide02_FoundingCouncil_v3.0_20260914_REVIEW.jpg</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+        
+    <div id="slide-panel-3" class="slide-panel hidden transition-all duration-300">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
+        
+        <!-- Wireframe Preview (8 cols) -->
+        <div class="lg:col-span-8 w-full">
+          <div class="aspect-[16/9] rounded-xl sm:rounded-2xl overflow-hidden bg-slate-950 border border-slate-700 shadow-2xl relative group">
+            <img src="assets/wireframes/UV_WIREFRAME_Slide03_ScaleMetrics_v3.0_20260914_REVIEW.jpg" alt="Slide 3: Proven Scale & Verified Metrics" class="w-full h-full object-cover">
+            <div class="absolute bottom-2.5 left-2.5 bg-slate-950/90 px-2.5 py-1 rounded text-[10px] sm:text-xs font-mono-code text-amber-400 border border-amber-500/30">
+              Slide 03 • 16:9 Master
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide Brief & Talking Points (4 cols) -->
+        <div class="lg:col-span-4 glass-card rounded-2xl p-4 sm:p-6 space-y-3 sm:space-y-4">
+          <div class="text-[9px] sm:text-[10px] font-mono-code text-amber-400 uppercase tracking-wider">SLIDE 03 SPECIFICATION</div>
+          <h3 class="text-lg sm:text-xl font-bold text-white leading-tight">Slide 3: Proven Scale & Verified Metrics</h3>
+          <p class="text-xs text-amber-400/90 font-medium leading-snug">Granular Institutional Proof Points (No Speculation / No Vaporware)</p>
+          
+          <div class="border-t border-slate-800 pt-3 space-y-2">
+            <div class="text-[10px] sm:text-xs font-mono-code text-slate-400 uppercase">Executive Talking Points:</div>
+        
+            <div class="flex items-start gap-1.5 text-xs text-slate-300 leading-relaxed">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span>26+ Feature Film Credits across Indian and international festivals.</span>
+            </div>
+            
+            <div class="flex items-start gap-1.5 text-xs text-slate-300 leading-relaxed">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span>₹170+ Cr Worldwide Box Office (Bala ₹171.5 Cr, The Lunchbox $18M+).</span>
+            </div>
+            
+            <div class="flex items-start gap-1.5 text-xs text-slate-300 leading-relaxed">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span>25+ Global Countries Reached across premier film distribution markets.</span>
+            </div>
+            
+            <div class="flex items-start gap-1.5 text-xs text-slate-300 leading-relaxed">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span>3,000,000+ Licensed Audio Stems & 500,000+ creators on Beatoven.ai.</span>
+            </div>
+            
+            <div class="flex items-start gap-1.5 text-xs text-slate-300 leading-relaxed">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span>5–7 Days Production Turnaround vs 8–12 weeks legacy shoot timeline.</span>
+            </div>
+            
+            <div class="flex items-start gap-1.5 text-xs text-slate-300 leading-relaxed">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span>Tier-1 Marquee Commercial Clients: Starbucks, HUL, Parle-G, Amazon Prime, Airtel, Reliance.</span>
+            </div>
+            
+          </div>
+
+          <div class="pt-3 border-t border-slate-800 text-[10px] font-mono-code text-slate-500 truncate">
+            Source: <span class="text-slate-400">UV_WIREFRAME_Slide03_ScaleMetrics_v3.0_20260914_REVIEW.jpg</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+        
+    <div id="slide-panel-4" class="slide-panel hidden transition-all duration-300">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
+        
+        <!-- Wireframe Preview (8 cols) -->
+        <div class="lg:col-span-8 w-full">
+          <div class="aspect-[16/9] rounded-xl sm:rounded-2xl overflow-hidden bg-slate-950 border border-slate-700 shadow-2xl relative group">
+            <img src="assets/wireframes/UV_WIREFRAME_Slide04_CreativeDialectic_v3.0_20260914_REVIEW.jpg" alt="Slide 4: The Creative Dialectic (Typographic)" class="w-full h-full object-cover">
+            <div class="absolute bottom-2.5 left-2.5 bg-slate-950/90 px-2.5 py-1 rounded text-[10px] sm:text-xs font-mono-code text-amber-400 border border-amber-500/30">
+              Slide 04 • 16:9 Master
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide Brief & Talking Points (4 cols) -->
+        <div class="lg:col-span-4 glass-card rounded-2xl p-4 sm:p-6 space-y-3 sm:space-y-4">
+          <div class="text-[9px] sm:text-[10px] font-mono-code text-amber-400 uppercase tracking-wider">SLIDE 04 SPECIFICATION</div>
+          <h3 class="text-lg sm:text-xl font-bold text-white leading-tight">Slide 4: The Creative Dialectic</h3>
+          <p class="text-xs text-amber-400/90 font-medium leading-snug">Arthouse Realism vs Generative Scale • Typographic Layout (No Images)</p>
+          
+          <div class="border-t border-slate-800 pt-3 space-y-2">
+            <div class="text-[10px] sm:text-xs font-mono-code text-slate-400 uppercase">Executive Talking Points:</div>
+        
+            <div class="flex items-start gap-1.5 text-xs text-slate-300 leading-relaxed">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span><strong>Architectural Typographic Layout:</strong> Symmetrical presentation contrasting Arthouse Realism with Generative Scale without reliance on imagery.</span>
+            </div>
+            
+            <div class="flex items-start gap-1.5 text-xs text-slate-300 leading-relaxed">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span><strong>Emotional Depth × Production Speed:</strong> Grounded emotional truth and classical film discipline married to zero-cost worldbuilding.</span>
+            </div>
+            
+            <div class="flex items-start gap-1.5 text-xs text-slate-300 leading-relaxed">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span><strong>Core Synthesis:</strong> "Directorial Taste as the Immutable Filter" — human cinematic judgment as the defining differentiator.</span>
+            </div>
+            
+          </div>
+
+          <div class="pt-3 border-t border-slate-800 text-[10px] font-mono-code text-slate-500 truncate">
+            Source: <span class="text-slate-400">UV_WIREFRAME_Slide04_CreativeDialectic_v3.0_20260914_REVIEW.jpg</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+        
+    <div id="slide-panel-5" class="slide-panel hidden transition-all duration-300">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
+        
+        <!-- Wireframe Preview (8 cols) -->
+        <div class="lg:col-span-8 w-full">
+          <div class="aspect-[16/9] rounded-xl sm:rounded-2xl overflow-hidden bg-slate-950 border border-slate-700 shadow-2xl relative group">
+            <img src="assets/wireframes/UV_WIREFRAME_Slide05_StrategicMoat_v2.0_20260913_REVIEW.jpg" alt="Slide 5: The Strategic Moat" class="w-full h-full object-cover">
+            <div class="absolute bottom-2.5 left-2.5 bg-slate-950/90 px-2.5 py-1 rounded text-[10px] sm:text-xs font-mono-code text-amber-400 border border-amber-500/30">
+              Slide 05 • 16:9 Master
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide Brief & Talking Points (4 cols) -->
+        <div class="lg:col-span-4 glass-card rounded-2xl p-4 sm:p-6 space-y-3 sm:space-y-4">
+          <div class="text-[9px] sm:text-[10px] font-mono-code text-amber-400 uppercase tracking-wider">SLIDE 05 SPECIFICATION</div>
+          <h3 class="text-lg sm:text-xl font-bold text-white leading-tight">Slide 5: The Strategic Moat</h3>
+          <p class="text-xs text-amber-400/90 font-medium leading-snug">Compliance, 5–7 Day Velocity & Up to 99% Cost Reduction</p>
+          
+          <div class="border-t border-slate-800 pt-3 space-y-2">
+            <div class="text-[10px] sm:text-xs font-mono-code text-slate-400 uppercase">Executive Talking Points:</div>
+        
+            <div class="flex items-start gap-1.5 text-xs text-slate-300 leading-relaxed">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span>Pillar 1: Institutional Trust & 100% Clean-Room Copyright Indemnity (No illicitly scraped models).</span>
+            </div>
+            
+            <div class="flex items-start gap-1.5 text-xs text-slate-300 leading-relaxed">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span>Pillar 2: Extreme Turnaround Velocity (8–12 week agency physical production compressed to 5–7 days).</span>
+            </div>
+            
+            <div class="flex items-start gap-1.5 text-xs text-slate-300 leading-relaxed">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span>Pillar 3: Up to 99% Physical Cost Reduction (eliminating physical set builds, permits, and multi-camera crews).</span>
+            </div>
+            
+            <div class="flex items-start gap-1.5 text-xs text-slate-300 leading-relaxed">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span>Pillar 4: Master Craftsmanship & Directorial Authority (FTII professorial rigor, Filmfare editing, Cannes laurels).</span>
+            </div>
+            
+            <div class="flex items-start gap-1.5 text-xs text-slate-300 leading-relaxed">
+              <span class="text-amber-400 mt-0.5">✦</span>
+              <span>Pillar 5: Transnational Distribution & Venture Access (Middle East/GCC theatrical distribution via Vivek; Silicon Valley & European creator network via Mansoor).</span>
+            </div>
+            
+          </div>
+
+          <div class="pt-3 border-t border-slate-800 text-[10px] font-mono-code text-slate-500 truncate">
+            Source: <span class="text-slate-400">UV_WIREFRAME_Slide05_StrategicMoat_v2.0_20260913_REVIEW.jpg</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+        
+  </section>
+
+
+
+  <!-- Mobile Logo Detail Modal / Sheet -->
+  <div id="logo-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="glass-card rounded-2xl max-w-md w-full p-6 relative border border-slate-700 shadow-2xl">
+      <button onclick="closeLogoModal()" class="touch-target absolute top-4 right-4 text-slate-400 hover:text-white flex items-center justify-center p-2 rounded-lg bg-slate-900 border border-slate-800">
+        ✕
+      </button>
+      
+      <div id="modal-content" class="space-y-4">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 bg-slate-950 py-8 px-4 sm:px-6 text-center text-[10px] sm:text-xs text-slate-500 font-mono-code">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div>
+        <strong>UNTITLED VENTURE</strong> • Confidential Executive Repertoire & Dossier
+      </div>
+      <div>
+        Certified under <code>GEMINI.md</code> & <code>_SYSTEM/naming_config.json</code>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Client-Side Interactivity Script -->
+  <script>
+    const LOGOS = [{"id": "starbucks", "name": "Starbucks India", "category": "Consumer Brands", "founder": "Navnita Sen", "desc": "Running Cow Films / Tata Starbucks national campaigns: Diwali DC & #itstartswithyourname.", "white_file": "UV_ASSET_LogoStarbucksWhite_v1.0_20260914_FINAL.png", "color_file": "UV_ASSET_LogoStarbucksColor_v1.0_20260914_FINAL.png", "is_emblem": true, "key": "Starbucks", "bbox": [390, 91, 810, 509], "center_x": 600.0, "center_y": 300.0, "width": 420, "height": 418, "min_rgb": 255, "audit_pass": true}, {"id": "unilever", "name": "Hindustan Unilever (HUL)", "category": "Consumer Brands", "founder": "Abhik Chatterjee", "desc": "Ogilvy & Mather / Little Lamb Films: Swachhta Ki Sawari At Kumbh (authentic boatmen field recording).", "white_file": "UV_ASSET_LogoUnileverWhite_v1.0_20260914_FINAL.png", "color_file": "UV_ASSET_LogoUnileverColor_v1.0_20260914_FINAL.png", "is_emblem": true, "key": "Unilever", "bbox": [397, 90, 803, 510], "center_x": 600.0, "center_y": 300.0, "width": 406, "height": 420, "min_rgb": 255, "audit_pass": true}, {"id": "parle", "name": "Parle Products (Parle-G)", "category": "Consumer Brands", "founder": "Abhik Chatterjee", "desc": "Ogilvy & Mather / Little Lamb Films: Roko Mat Toko Mat TVCs directed by Vibhu Puri.", "white_file": "UV_ASSET_LogoParleProductsWhite_v1.0_20260914_FINAL.png", "color_file": "UV_ASSET_LogoParleProductsColor_v1.0_20260914_FINAL.png", "is_emblem": false, "key": "ParleProducts", "bbox": [343, 200, 871, 397], "center_x": 607.0, "center_y": 298.5, "width": 528, "height": 197, "min_rgb": 255, "audit_pass": true}, {"id": "amazon_prime", "name": "Amazon Prime Video", "category": "Consumer Brands", "founder": "Abhik Chatterjee, Navnita Sen", "desc": "Guilty Minds (10-episode legal drama edited by Navnita) & Made in Heaven digital campaigns.", "white_file": "UV_ASSET_LogoAmazonPrimeWhite_v1.0_20260914_FINAL.png", "color_file": "UV_ASSET_LogoAmazonPrimeColor_v1.0_20260914_FINAL.png", "is_emblem": false, "key": "AmazonPrime", "bbox": [200, 177, 1000, 423], "center_x": 600.0, "center_y": 300.0, "width": 800, "height": 246, "min_rgb": 255, "audit_pass": true}, {"id": "airtel", "name": "Bharti Airtel", "category": "Consumer Brands", "founder": "Abhik Chatterjee", "desc": "Stream videos 26% faster digital commercial music and sound design.", "white_file": "UV_ASSET_LogoAirtelWhite_v1.0_20260914_FINAL.png", "color_file": "UV_ASSET_LogoAirtelColor_v1.0_20260914_FINAL.png", "is_emblem": false, "key": "Airtel", "bbox": [460, 161, 740, 439], "center_x": 600.0, "center_y": 300.0, "width": 280, "height": 278, "min_rgb": 255, "audit_pass": true}, {"id": "reliance", "name": "Reliance Industries / Jio", "category": "Consumer Brands", "founder": "Abhik Chatterjee, Vivek Rangachari", "desc": "Corporate sonic branding & Jio Studios theatrical distribution partnership (Bala).", "white_file": "UV_ASSET_LogoRelianceWhite_v1.0_20260914_FINAL.png", "color_file": "UV_ASSET_LogoRelianceColor_v1.0_20260914_FINAL.png", "is_emblem": false, "key": "Reliance", "bbox": [410, 168, 790, 431], "center_x": 600.0, "center_y": 299.5, "width": 380, "height": 263, "min_rgb": 255, "audit_pass": true}, {"id": "ogilvy", "name": "Ogilvy & Mather (O&M)", "category": "Studios & Networks", "founder": "Abhik Chatterjee", "desc": "Premier advertising agency network collaboration across HUL, Parle-G, and Red Label.", "white_file": "UV_ASSET_LogoOgilvyWhite_v1.0_20260914_FINAL.png", "color_file": "UV_ASSET_LogoOgilvyColor_v1.0_20260914_FINAL.png", "is_emblem": false, "key": "Ogilvy", "bbox": [206, 209, 993, 389], "center_x": 599.5, "center_y": 299.0, "width": 787, "height": 180, "min_rgb": 255, "audit_pass": true}, {"id": "little_lamb", "name": "Little Lamb Films", "category": "Studios & Networks", "founder": "Abhik Chatterjee", "desc": "Boutique production house founded by Bauddhayan Mukherji; campaigns & fiction film 251.", "white_file": "UV_ASSET_LogoLittleLambWhite_v1.0_20260914_FINAL.png", "color_file": "UV_ASSET_LogoLittleLambColor_v1.0_20260914_FINAL.png", "is_emblem": false, "key": "LittleLamb", "bbox": [213, 239, 986, 361], "center_x": 599.5, "center_y": 300.0, "width": 773, "height": 122, "min_rgb": 255, "audit_pass": true}, {"id": "running_cow", "name": "Running Cow Films", "category": "Studios & Networks", "founder": "Navnita Sen", "desc": "Production company behind national Starbucks campaigns, commercials, and fiction shorts.", "white_file": "UV_ASSET_LogoRunningCowWhite_v1.0_20260914_FINAL.png", "color_file": "UV_ASSET_LogoRunningCowColor_v1.0_20260914_FINAL.png", "is_emblem": false, "key": "RunningCow", "bbox": [378, 160, 822, 440], "center_x": 600.0, "center_y": 300.0, "width": 444, "height": 280, "min_rgb": 255, "audit_pass": true}, {"id": "dar", "name": "DAR Motion Pictures", "category": "Studios & Networks", "founder": "Vivek Rangachari", "desc": "Studio division backing The Lunchbox, Ugly, D-Day, Monsoon Shootout, and Mickey Virus.", "white_file": "UV_ASSET_LogoDARMotionPicturesWhite_v1.0_20260914_FINAL.png", "color_file": "UV_ASSET_LogoDARMotionPicturesColor_v1.0_20260914_FINAL.png", "is_emblem": true, "key": "DARMotionPictures", "bbox": [394, 90, 806, 510], "center_x": 600.0, "center_y": 300.0, "width": 412, "height": 420, "min_rgb": 255, "audit_pass": true}, {"id": "balaji", "name": "Balaji Motion Pictures", "category": "Studios & Networks", "founder": "Abhik Chatterjee", "desc": "Major entertainment studio; Box Cricket League official anthem and broadcast themes.", "white_file": "UV_ASSET_LogoBalajiMotionPicturesWhite_v1.0_20260914_FINAL.png", "color_file": "UV_ASSET_LogoBalajiMotionPicturesColor_v1.0_20260914_FINAL.png", "is_emblem": true, "key": "BalajiMotionPictures", "bbox": [432, 90, 768, 509], "center_x": 600.0, "center_y": 299.5, "width": 336, "height": 419, "min_rgb": 255, "audit_pass": true}, {"id": "sohum_shah", "name": "Sohum Shah Films", "category": "Studios & Networks", "founder": "Abhik Chatterjee", "desc": "National Award-winning studio (Tumbbad, Ship of Theseus); scores for 251 and Cabbage.", "white_file": "UV_ASSET_LogoSohumShahFilmsWhite_v1.0_20260914_FINAL.png", "color_file": "UV_ASSET_LogoSohumShahFilmsColor_v1.0_20260914_FINAL.png", "is_emblem": false, "key": "SohumShahFilms", "bbox": [200, 196, 1000, 390], "center_x": 600.0, "center_y": 293.0, "width": 800, "height": 194, "min_rgb": 1, "audit_pass": true}, {"id": "cannes", "name": "Festival de Cannes", "category": "Academies & Festivals", "founder": "Vivek Rangachari", "desc": "Critics' Week Grand Rail d'Or Winner (The Lunchbox) & Directors' Fortnight (Ugly).", "white_file": "UV_ASSET_LogoCannesWhite_v1.0_20260914_FINAL.png", "color_file": "UV_ASSET_LogoCannesColor_v1.0_20260914_FINAL.png", "is_emblem": true, "key": "Cannes", "bbox": [353, 212, 847, 388], "center_x": 600.0, "center_y": 300.0, "width": 494, "height": 176, "min_rgb": 255, "audit_pass": true}, {"id": "bafta", "name": "BAFTA", "category": "Academies & Festivals", "founder": "Vivek Rangachari", "desc": "British Academy of Film and Television Arts nominee for Best Film Not in English (The Lunchbox).", "white_file": "UV_ASSET_LogoBAFTAWhite_v1.0_20260914_FINAL.png", "color_file": "UV_ASSET_LogoBAFTAColor_v1.0_20260914_FINAL.png", "is_emblem": true, "key": "BAFTA", "bbox": [350, 255, 850, 345], "center_x": 600.0, "center_y": 300.0, "width": 500, "height": 90, "min_rgb": 255, "audit_pass": true}, {"id": "berlinale", "name": "Berlinale", "category": "Academies & Festivals", "founder": "Navnita Sen, Vivek Rangachari", "desc": "Berlin International Film Festival: Panorama Official Selection (Ghaath) & Photograph.", "white_file": "UV_ASSET_LogoBerlinaleWhite_v1.0_20260914_FINAL.png", "color_file": "UV_ASSET_LogoBerlinaleColor_v1.0_20260914_FINAL.png", "is_emblem": true, "key": "Berlinale", "bbox": [450, 211, 750, 389], "center_x": 600.0, "center_y": 300.0, "width": 300, "height": 178, "min_rgb": 255, "audit_pass": true}, {"id": "filmfare", "name": "Filmfare Awards", "category": "Academies & Festivals", "founder": "Navnita Sen", "desc": "2025 Filmfare Award Winner for Best Editing on the feature film Ghaath.", "white_file": "UV_ASSET_LogoFilmfareWhite_v1.0_20260914_FINAL.png", "color_file": "UV_ASSET_LogoFilmfareColor_v1.0_20260914_FINAL.png", "is_emblem": true, "key": "Filmfare", "bbox": [491, 277, 709, 324], "center_x": 600.0, "center_y": 300.5, "width": 218, "height": 47, "min_rgb": 255, "audit_pass": true}, {"id": "national_awards", "name": "National Film Awards", "category": "Academies & Festivals", "founder": "Nilaanjan Reeta Datta", "desc": "2x National Award winner: Best Feature in Wancho (The Head Hunter) and Non-Feature Direction.", "white_file": "UV_ASSET_LogoNationalFilmAwardsWhite_v1.0_20260914_FINAL.png", "color_file": "UV_ASSET_LogoNationalFilmAwardsColor_v1.0_20260914_FINAL.png", "is_emblem": true, "key": "NationalFilmAwards", "bbox": [350, 105, 850, 494], "center_x": 600.0, "center_y": 299.5, "width": 500, "height": 389, "min_rgb": 255, "audit_pass": true}, {"id": "ftii", "name": "FTII Pune", "category": "Academies & Festivals", "founder": "Nilaanjan Reeta Datta, Navnita Sen", "desc": "Film & Television Institute of India: Nilaanjan served as Professor; Navnita earned Editing PG.", "white_file": "UV_ASSET_LogoFTIIWhite_v1.0_20260914_FINAL.png", "color_file": "UV_ASSET_LogoFTIIColor_v1.0_20260914_FINAL.png", "is_emblem": true, "key": "FTII", "bbox": [440, 144, 761, 457], "center_x": 600.5, "center_y": 300.5, "width": 321, "height": 313, "min_rgb": 255, "audit_pass": true}, {"id": "georgia_tech", "name": "Georgia Tech (CMT)", "category": "Academies & Festivals", "founder": "Mansoor Rahimat Khan", "desc": "Center for Music Technology; research in music information retrieval & neural audio synthesis.", "white_file": "UV_ASSET_LogoGeorgiaTechWhite_v1.0_20260914_FINAL.png", "color_file": "UV_ASSET_LogoGeorgiaTechColor_v1.0_20260914_FINAL.png", "is_emblem": false, "key": "GeorgiaTech", "bbox": [460, 160, 740, 440], "center_x": 600.0, "center_y": 300.0, "width": 280, "height": 280, "min_rgb": 255, "audit_pass": true}, {"id": "beatoven", "name": "Beatoven.ai", "category": "Tech & Platforms", "founder": "Mansoor Rahimat Khan, Abhik Chatterjee", "desc": "Ethical generative audio foundation model company backed by Info Edge & Entrepreneur First.", "white_file": "UV_ASSET_LogoBeatovenWhite_v1.0_20260914_FINAL.png", "color_file": "UV_ASSET_LogoBeatovenColor_v1.0_20260914_FINAL.png", "is_emblem": false, "key": "Beatoven", "bbox": [200, 228, 1000, 371], "center_x": 600.0, "center_y": 299.5, "width": 800, "height": 143, "min_rgb": 1, "audit_pass": true}, {"id": "finchbill", "name": "Finchbill Motion Pictures", "category": "Studios & Networks", "founder": "Nilaanjan Reeta Datta", "desc": "Mumbai production company producing Shadow Assassins, Visitors, and luxury commercials.", "white_file": "UV_ASSET_LogoFinchbillWhite_v1.0_20260914_FINAL.png", "color_file": "UV_ASSET_LogoFinchbillColor_v1.0_20260914_FINAL.png", "is_emblem": false, "key": "Finchbill", "bbox": [261, 116, 939, 482], "center_x": 600.0, "center_y": 299.0, "width": 678, "height": 366, "min_rgb": 255, "audit_pass": true}, {"id": "rusk", "name": "Rusk Media", "category": "Studios & Networks", "founder": "Abhik Chatterjee", "desc": "Leading digital entertainment studio; vertical AI micro-dramas (TAJ, Dabangg Bodyguard).", "white_file": "UV_ASSET_LogoRuskMediaWhite_v1.0_20260914_FINAL.png", "color_file": "UV_ASSET_LogoRuskMediaColor_v1.0_20260914_FINAL.png", "is_emblem": false, "key": "RuskMedia", "bbox": [364, 160, 835, 440], "center_x": 599.5, "center_y": 300.0, "width": 471, "height": 280, "min_rgb": 1, "audit_pass": true}, {"id": "sony_classics", "name": "Sony Pictures Classics", "category": "Studios & Networks", "founder": "Vivek Rangachari", "desc": "Worldwide theatrical distributor for Vivek's production The Lunchbox across North America & globe.", "white_file": "UV_ASSET_LogoSonyPicturesClassicsWhite_v1.0_20260914_FINAL.png", "color_file": "UV_ASSET_LogoSonyPicturesClassicsColor_v1.0_20260914_FINAL.png", "is_emblem": false, "key": "SonyPicturesClassics", "bbox": [200, 257, 1000, 343], "center_x": 600.0, "center_y": 300.0, "width": 800, "height": 86, "min_rgb": 255, "audit_pass": true}, {"id": "fal_ai", "name": "fal.ai", "category": "Tech & Platforms", "founder": "Abhik Chatterjee", "desc": "Global AI inference platform hosting Beatoven's flagship 'maestro' generative SFX model.", "white_file": "UV_ASSET_LogoFalAIWhite_v1.0_20260914_FINAL.png", "color_file": "UV_ASSET_LogoFalAIColor_v1.0_20260914_FINAL.png", "is_emblem": false, "key": "FalAI", "bbox": [250, 160, 950, 440], "center_x": 600.0, "center_y": 300.0, "width": 700, "height": 280, "min_rgb": 255, "audit_pass": true}];
+    let currentStyle = 'white';
+    let currentCategory = 'All';
+    let searchQuery = '';
+    let currentSlideIndex = 1;
+
+    // Mobile Navigation Drawer Toggle
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobile-menu-drawer');
+      const iconBars = document.getElementById('menu-icon-bars');
+      const iconClose = document.getElementById('menu-icon-close');
+      
+      if (drawer.classList.contains('hidden')) {
+        drawer.classList.remove('hidden');
+        iconBars.classList.add('hidden');
+        iconClose.classList.remove('hidden');
+      } else {
+        drawer.classList.add('hidden');
+        iconBars.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      }
+    }
+
+    // Founder Switcher
+    function switchFounder(id) {
+      document.querySelectorAll('.founder-panel').forEach(p => p.classList.add('hidden'));
+      const activePanel = document.getElementById('panel-' + id);
+      if (activePanel) activePanel.classList.remove('hidden');
+      
+      document.querySelectorAll('[id^="tab-"]').forEach(btn => {
+        btn.className = "touch-target px-4 py-2.5 rounded-xl text-xs font-medium whitespace-nowrap transition-all flex items-center gap-2 bg-slate-900/90 text-slate-300 hover:bg-slate-800 active:scale-95";
+        const dot = btn.querySelector('span');
+        if (dot) dot.className = "w-1.5 h-1.5 rounded-full bg-amber-400";
+      });
+      
+      const activeBtn = document.getElementById('tab-' + id);
+      if (activeBtn) {
+        activeBtn.className = "touch-target px-4 py-2.5 rounded-xl text-xs font-medium whitespace-nowrap transition-all flex items-center gap-2 bg-amber-500 text-slate-950 font-bold active:scale-95 shadow-md";
+        const dot = activeBtn.querySelector('span');
+        if (dot) dot.className = "w-1.5 h-1.5 rounded-full bg-slate-950";
+        activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    }
+
+    // Slide Switcher & Stepper
+    function switchSlide(num) {
+      currentSlideIndex = num;
+      document.querySelectorAll('.slide-panel').forEach(p => p.classList.add('hidden'));
+      const activeSlide = document.getElementById('slide-panel-' + num);
+      if (activeSlide) activeSlide.classList.remove('hidden');
+      
+      document.querySelectorAll('[id^="slide-btn-"]').forEach(btn => {
+        btn.className = "touch-target px-3.5 sm:px-4 py-2 rounded-xl text-xs font-medium whitespace-nowrap transition-all flex items-center gap-1.5 bg-slate-900/90 text-slate-300 hover:bg-slate-800 active:scale-95";
+      });
+      
+      const activeBtn = document.getElementById('slide-btn-' + num);
+      if (activeBtn) {
+        activeBtn.className = "touch-target px-3.5 sm:px-4 py-2 rounded-xl text-xs font-medium whitespace-nowrap transition-all flex items-center gap-1.5 bg-amber-500 text-slate-950 font-bold active:scale-95 shadow-md";
+        activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    }
+
+    function prevSlide() {
+      let prev = currentSlideIndex - 1;
+      if (prev < 1) prev = 5;
+      switchSlide(prev);
+    }
+
+    function nextSlide() {
+      let next = currentSlideIndex + 1;
+      if (next > 5) next = 1;
+      switchSlide(next);
+    }
+
+    // Logo Style Switcher
+    function setLogoStyle(style) {
+      currentStyle = style;
+      const btnW = document.getElementById('btn-style-white');
+      const btnC = document.getElementById('btn-style-color');
+      
+      if (style === 'white') {
+        btnW.className = "touch-target flex-1 sm:flex-none px-3 py-2 rounded-lg text-xs font-medium bg-amber-500 text-slate-950 font-bold transition-all flex items-center justify-center gap-1.5 active:scale-95";
+        btnW.querySelector('span').className = "w-2 h-2 rounded-full bg-slate-950";
+        btnC.className = "touch-target flex-1 sm:flex-none px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition-all flex items-center justify-center gap-1.5 active:scale-95";
+        btnC.querySelector('span').className = "w-2 h-2 rounded-full bg-amber-400";
+      } else {
+        btnC.className = "touch-target flex-1 sm:flex-none px-3 py-2 rounded-lg text-xs font-medium bg-amber-500 text-slate-950 font-bold transition-all flex items-center justify-center gap-1.5 active:scale-95";
+        btnC.querySelector('span').className = "w-2 h-2 rounded-full bg-slate-950";
+        btnW.className = "touch-target flex-1 sm:flex-none px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition-all flex items-center justify-center gap-1.5 active:scale-95";
+        btnW.querySelector('span').className = "w-2 h-2 rounded-full bg-amber-400";
+      }
+      renderLogos();
+    }
+
+    // Logo Category Filter
+    function filterLogos(cat) {
+      currentCategory = cat;
+      document.querySelectorAll('.logo-cat-btn').forEach(b => {
+        if (b.dataset.cat === cat) {
+          b.className = "logo-cat-btn touch-target px-3.5 py-2 rounded-xl text-xs font-medium whitespace-nowrap bg-amber-500 text-slate-950 font-bold active:scale-95 transition-all";
+          b.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        } else {
+          b.className = "logo-cat-btn touch-target px-3.5 py-2 rounded-xl text-xs font-medium whitespace-nowrap bg-slate-900 text-slate-300 hover:bg-slate-800 active:scale-95 transition-all";
+        }
+      });
+      renderLogos();
+    }
+
+    // Search Logos
+    function searchLogos(q) {
+      searchQuery = q.toLowerCase();
+      renderLogos();
+    }
+
+    // Render Logos Container (Mobile 2-col, Desktop 4-col)
+    function renderLogos() {
+      const container = document.getElementById('logos-container');
+      if (!container) return;
+      container.innerHTML = '';
+      
+      const filtered = LOGOS.filter(l => {
+        const matchesCat = (currentCategory === 'All' || l.category === currentCategory);
+        const matchesSearch = (!searchQuery || l.name.toLowerCase().includes(searchQuery) || l.founder.toLowerCase().includes(searchQuery) || l.desc.toLowerCase().includes(searchQuery));
+        return matchesCat && matchesSearch;
+      });
+      
+      if (filtered.length === 0) {
+        container.innerHTML = '<div class="col-span-full py-12 text-center text-xs text-slate-500 font-mono-code">No brands matching current filter.</div>';
+        return;
+      }
+      
+      const logoBasePathWhite = "assets/logos/white/";
+      const logoBasePathColor = "assets/logos/color/";
+      
+      filtered.forEach(l => {
+        const card = document.createElement('div');
+        card.className = "glass-card rounded-xl p-3 sm:p-4 flex flex-col justify-between hover:border-amber-500/40 active:scale-[0.98] transition-all cursor-pointer";
+        card.onclick = () => openLogoModal(l);
+        
+        const imgFile = (currentStyle === 'white') ? l.white_file : l.color_file;
+        const imgPath = (currentStyle === 'white') ? (logoBasePathWhite + imgFile) : (logoBasePathColor + imgFile);
+        const previewBg = (currentStyle === 'white') ? 'bg-slate-950 border-slate-800' : 'bg-slate-100 border-slate-300';
+        const centerStr = '(' + Math.round(l.center_x) + ', ' + Math.round(l.center_y) + ')';
+        
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center justify-between text-[9px] sm:text-[10px] font-mono-code mb-1.5 sm:mb-2">
+              <span class="text-amber-400 font-semibold truncate max-w-[90px] sm:max-w-none">${l.category}</span>
+              <span class="text-emerald-400 shrink-0">✓ PASS</span>
+            </div>
+            
+            <div class="aspect-[2/1] rounded-lg ${previewBg} border flex items-center justify-center p-2 sm:p-3 mb-2 sm:mb-3 relative group overflow-hidden">
+              <img src="${imgPath}" alt="${l.name}" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105">
+            </div>
+            
+            <h4 class="text-[11px] sm:text-xs font-bold text-white mb-0.5 truncate">${l.name}</h4>
+            <div class="text-[10px] text-amber-400/90 font-medium mb-1 truncate">${l.founder}</div>
+            <p class="hidden sm:block text-[10px] text-slate-400 leading-tight mb-3 line-clamp-2">${l.desc}</p>
+          </div>
+          
+          <div class="border-t border-slate-800/80 pt-1.5 sm:pt-2 flex items-center justify-between text-[9px] sm:text-[10px] font-mono-code text-slate-500">
+            <span class="truncate">${centerStr}</span>
+            <span class="text-amber-400/80">Tap to inspect</span>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Logo Modal Details
+    function openLogoModal(l) {
+      const modal = document.getElementById('logo-modal');
+      const content = document.getElementById('modal-content');
+      
+      const logoBasePathWhite = "assets/logos/white/";
+      const logoBasePathColor = "assets/logos/color/";
+      const whiteImg = logoBasePathWhite + l.white_file;
+      const colorImg = logoBasePathColor + l.color_file;
+      const bboxStr = l.bbox ? (l.bbox[0] + ', ' + l.bbox[1] + ', ' + l.bbox[2] + ', ' + l.bbox[3]) : 'N/A';
+      
+      content.innerHTML = `
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-mono-code text-amber-400 bg-amber-500/10 px-2.5 py-0.5 rounded border border-amber-500/30">${l.category}</span>
+          <span class="text-xs font-mono-code text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">✓ 5-Gate Passed</span>
+        </div>
+        
+        <h3 class="text-lg font-bold text-white mb-1">${l.name}</h3>
+        <p class="text-xs text-amber-400/90 font-medium mb-3">Attributed Partner: ${l.founder}</p>
+        <p class="text-xs text-slate-300 leading-relaxed mb-4">${l.desc}</p>
+        
+        <!-- Dual Previews: Dark & Light -->
+        <div class="grid grid-cols-2 gap-3 mb-4">
+          <div class="space-y-1 text-center">
+            <div class="text-[10px] font-mono-code text-slate-400">Broadcast White</div>
+            <div class="aspect-[2/1] rounded-lg bg-slate-950 border border-slate-800 flex items-center justify-center p-2.5">
+              <img src="${whiteImg}" alt="${l.name} White" class="max-w-full max-h-full object-contain">
+            </div>
+          </div>
+          
+          <div class="space-y-1 text-center">
+            <div class="text-[10px] font-mono-code text-slate-400">Brand Colorway</div>
+            <div class="aspect-[2/1] rounded-lg bg-slate-100 border border-slate-300 flex items-center justify-center p-2.5">
+              <img src="${colorImg}" alt="${l.name} Color" class="max-w-full max-h-full object-contain">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Audit Metadata -->
+        <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-1 font-mono-code text-[11px]">
+          <div class="flex justify-between text-slate-400"><span>Canvas Geometry:</span> <span class="text-white">1200 × 600 px</span></div>
+          <div class="flex justify-between text-slate-400"><span>Bounding Box:</span> <span class="text-white">${bboxStr}</span></div>
+          <div class="flex justify-between text-slate-400"><span>Optical Center:</span> <span class="text-amber-400">(${Math.round(l.center_x)}, ${Math.round(l.center_y)})</span></div>
+          <div class="flex justify-between text-slate-400"><span>White Purity:</span> <span class="text-emerald-400">255/255 (#FFFFFF)</span></div>
+          <div class="flex justify-between text-slate-400"><span>Format / Mode:</span> <span class="text-white">32-bit RGBA PNG</span></div>
+        </div>
+      `;
+      
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeLogoModal() {
+      const modal = document.getElementById('logo-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderLogos();
+    });
+  </script>
+
+</body>
+</html>
